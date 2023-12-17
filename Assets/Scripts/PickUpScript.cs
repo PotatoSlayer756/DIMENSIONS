@@ -7,6 +7,7 @@ public class PickUpScript : MonoBehaviour
     public bool isEmpty = true, canPickUp;
     public GameObject GrabSlot, heldObj;
     private Rigidbody rb;
+    private BoxCollider bxc;
 
     private void Start()
     {
@@ -34,15 +35,19 @@ public class PickUpScript : MonoBehaviour
     void PickUpObject(GameObject heldObj, GameObject GrabSlot)
     {
         rb = heldObj.GetComponent<Rigidbody>();
+        bxc = heldObj.GetComponent<BoxCollider>();
         heldObj.transform.position = GrabSlot.transform.position;
         heldObj.transform.SetParent(GrabSlot.transform);
         rb.isKinematic = true;
+        bxc.isTrigger = true;
         print("picked up");
     }
     void DropObject(GameObject heldObj)
     {
         rb = heldObj.GetComponent<Rigidbody>();
+        bxc = heldObj.GetComponent<BoxCollider>();
         rb.isKinematic = false;
+        bxc.isTrigger = false;
         heldObj.transform.parent = null;
         print("putted down");
     }

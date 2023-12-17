@@ -10,6 +10,7 @@ public class ItemRespawnScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Death"))
         {
+            print("item respawns");
             transform.position = defaultPosition;
         }
     }
