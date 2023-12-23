@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Rigidbody rb;
     public GameObject PanelMenu, portal;
+    public Vector3 respawnPos;
+    public zonescript zone;
 
     private TimerScript timerScript;
     private SceneLoaderScript sceneLoaderScript;
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
         PanelMenu.SetActive(false);
+
     }
 
     void Update()
@@ -61,7 +64,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((other.CompareTag("Death")))
         {
-            sceneLoaderScript.ReloadScene();
+            print("player respawns");
+            transform.position = respawnPos;
+        }
+        if (other.CompareTag("CheckPoint"))
+        {
+            zone = other.GetComponent<zonescript>();
+            respawnPos = zone.CheckpointXYZ;
         }
         if (other.CompareTag("Portal"))
         {
