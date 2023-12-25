@@ -21,7 +21,7 @@ public class raycastscript : MonoBehaviour
             Vector3 normal = hit.normal;
             Debug.Log("The normal of the surface hit is: " + normal);
             Debug.Log("Hit object: " + hit.collider.gameObject.name);
-            transform.rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
+            transform.rotation = Quaternion.LookRotation(hit.transform.forward, Vector3.up); ;
         }
         Debug.DrawRay(ray.origin, ray.direction, Color.green);
     }
