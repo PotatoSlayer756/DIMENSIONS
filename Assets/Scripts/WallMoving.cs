@@ -14,9 +14,9 @@ public class WallMoving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float moveX = Input.GetAxis("Horizontal");
-        float clampedX = Mathf.Clamp(transform.position.x + moveX * playerSpeed * Time.deltaTime, minX, maxX);
-        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
+        float horizontalInput = Input.GetAxis("Horizontal");
+        Vector3 movement = -transform.right * horizontalInput * playerSpeed * Time.deltaTime;
+        transform.position += movement;
 
     }
 }

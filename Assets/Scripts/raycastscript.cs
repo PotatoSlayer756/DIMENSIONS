@@ -18,10 +18,13 @@ public class raycastscript : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            Vector3 normal = hit.normal;
-            Debug.Log("The normal of the surface hit is: " + normal);
-            Debug.Log("Hit object: " + hit.collider.gameObject.name);
-            transform.rotation = Quaternion.LookRotation(hit.transform.forward, Vector3.up); ;
+            if (hit.collider.gameObject.CompareTag("Wall"))
+            {
+                Vector3 normal = hit.normal;
+                Debug.Log("The normal of the surface hit is: " + normal);
+                Debug.Log("Hit object: " + hit.collider.gameObject.name);
+                transform.parent.rotation = Quaternion.LookRotation(hit.normal, Vector3.up);
+            }
         }
         Debug.DrawRay(ray.origin, ray.direction, Color.green);
     }

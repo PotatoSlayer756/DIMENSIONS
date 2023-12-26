@@ -9,6 +9,7 @@ TagManager:
   - Death
   - Portal
   - CheckPoint
+  - Wall
   layers:
   - Default
   - TransparentFX
