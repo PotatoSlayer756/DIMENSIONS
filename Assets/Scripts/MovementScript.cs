@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro.EditorUtilities;
@@ -33,16 +34,33 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Get the input for movement
+        float moveInput = Input.GetAxis("Vertical");
+        float strafeInput = Input.GetAxis("Horizontal");
 
-        playerPosition.x = Input.GetAxis("Horizontal");
-        playerPosition.z = Input.GetAxis("Vertical");
+        // Get the camera's forward and right vectors
+        Vector3 cameraForward = Camera.main.transform.forward;
+        Vector3 cameraRight = Camera.main.transform.right;
 
-        rb.MovePosition(rb.position + playerPosition * playerSpeed * Time.deltaTime);
+        // Remove the y component from the vectors to ensure the player stays grounded
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+        cameraForward = cameraForward.normalized;
+        cameraRight = cameraRight.normalized;
 
-        if (playerPosition != Vector3.zero)
+        // Calculate the movement direction based on the input and camera's orientation
+        Vector3 moveDirection = (cameraForward * moveInput + cameraRight * strafeInput).normalized;
+
+        // Move the player in the calculated direction
+        rb.MovePosition(rb.position + moveDirection * playerSpeed * Time.deltaTime);
+
+        // Update the player's rotation to face the movement direction
+        if (moveDirection != Vector3.zero)
         {
-            transform.forward = playerPosition;
+            Quaternion newRotation = Quaternion.LookRotation(moveDirection);
+            rb.MoveRotation(newRotation);
         }
+
         // Let the player jump 
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
