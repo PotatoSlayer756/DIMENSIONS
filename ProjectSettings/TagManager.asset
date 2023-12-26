@@ -10,6 +10,7 @@ TagManager:
   - Portal
   - CheckPoint
   - Wall
+  - Elevator
   layers:
   - Default
   - TransparentFX

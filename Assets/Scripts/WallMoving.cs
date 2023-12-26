@@ -5,6 +5,7 @@ using UnityEngine;
 public class WallMoving : MonoBehaviour
 {
     public float playerSpeed = 5f, minX, maxX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,8 +16,17 @@ public class WallMoving : MonoBehaviour
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 movement = -transform.right * horizontalInput * playerSpeed * Time.deltaTime;
+        Vector3 movement = transform.right * horizontalInput * playerSpeed * Time.deltaTime;
         transform.position += movement;
 
+        // Check if player object is within range
+        if (transform.position.x < minX)
+        {
+            transform.position = new Vector3(minX, transform.position.y, transform.position.z);
+        }
+        else if (transform.position.x > maxX)
+        {
+            transform.position = new Vector3(maxX, transform.position.y, transform.position.z);
+        }
     }
 }

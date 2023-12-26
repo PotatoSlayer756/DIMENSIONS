@@ -8,7 +8,9 @@ public class SwapScript : MonoBehaviour
     public GameObject Player, WallPlayer, GrabSlot, PlayerChecker;
     public CinemachineVirtualCamera playerCamera;
     public Camera wallCamera;
+    public Vector3 wallCameraOffSet;
     public bool playerInTrigger = false;
+    public bool isWall = false;
     public float wallRestrictionMin, wallRestrictionMax;
     private PickUpScript pickup;
     private WallMoving wp;
@@ -16,7 +18,6 @@ public class SwapScript : MonoBehaviour
     void Start()
     {
         pickup = GrabSlot.GetComponent<PickUpScript>();
-        pickup.isEmpty = true;
         wp = WallPlayer.GetComponent<WallMoving>();
     }
 
@@ -26,23 +27,24 @@ public class SwapScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             print(playerInTrigger);
-            if (playerInTrigger & pickup.isEmpty)
+            if (playerInTrigger && pickup.isEmpty)
             {
                 print("swapping");
-                switch (Player.activeSelf)
+                switch (isWall)
                 {
-                    case true:
-                        WallPlayer.transform.position = gameObject.transform.position + new Vector3(0, 2, 5);
+                    case false:
+                        WallPlayer.transform.position = gameObject.transform.position + wallCameraOffSet;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
-                        WallPlayer.SetActive(true);
                         Player.SetActive(false);
+                        WallPlayer.SetActive(true);
                         playerCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
                         playerCamera.transform.rotation = wallCamera.transform.rotation;
                         print("player check");
+                        isWall = true;
                         break;
 
-                    case false:
+                    case true:
                         Player.transform.position = PlayerChecker.transform.position;
                         WallPlayer.SetActive(false);
                         Player.SetActive(true);
@@ -50,8 +52,13 @@ public class SwapScript : MonoBehaviour
                         wallCamera.gameObject.SetActive(false);
                         playerCamera.transform.rotation = wallCamera.transform.rotation;
                         print("wallplayer check");
+                        isWall = false;
                         break;
                 }
+            }
+            else
+            {
+                print("can't swap");
             }
         }       
     }

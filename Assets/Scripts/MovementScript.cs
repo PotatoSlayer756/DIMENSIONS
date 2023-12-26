@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
-    public bool isOnGround = true;
+    public bool isOnGround = true, isOnElevator = false;
 
     public Rigidbody rb;
     public GameObject PanelMenu, portal;
@@ -71,11 +71,37 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+    void FixedUpdate()
+    {
+        if (isOnElevator)
+        {
+            // Calculate movement direction
+            Vector3 movement = transform.right * playerSpeed * Time.fixedDeltaTime;
+
+            // Move the object using Rigidbody's velocity
+            GetComponent<Rigidbody>().velocity = movement;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Elevator"))
+        {
+            isOnElevator = true;
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Elevator"))
+        {
+            isOnElevator = false;
         }
     }
     private void OnTriggerEnter(Collider other)
