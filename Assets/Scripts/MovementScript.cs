@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
     public bool isOnGround = true;
+    public int keyCount = 0;
 
     public Rigidbody rb;
     public GameObject PanelMenu, portal;
@@ -101,6 +102,10 @@ public class PlayerMovement : MonoBehaviour
             PanelMenu.SetActive(true);
             gameObject.SetActive(false);
         }
-
+        if (other.CompareTag("Key"))
+        {
+            keyCount++;
+            other.gameObject.SetActive(false);
+        }
     }
 }
