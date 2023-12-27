@@ -2811,10 +2811,10 @@ MonoBehaviour:
   GrabSlot: {fileID: 37246777}
   PlayerChecker: {fileID: 7218209428545212550}
   playerCamera: {fileID: 857630749}
+  mainCamera: {fileID: 0}
   wallCamera: {fileID: 1642714242}
   wallCameraOffSet: {x: 0, y: 1, z: 0}
   playerInTrigger: 0
-  isWall: 0
   wallRestrictionMin: 77
   wallRestrictionMax: 113
 --- !u!65 &784789886
@@ -3030,7 +3030,7 @@ Transform:
   m_GameObject: {fileID: 857630748}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44150585, y: 0, z: 0, w: 0.8972584}
-  m_LocalPosition: {x: -6.91, y: 15.662212, z: -4.0778265}
+  m_LocalPosition: {x: -49.793, y: 25.442213, z: -4.279827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3336,7 +3336,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44150585, y: 0, z: 0, w: 0.8972584}
-  m_LocalPosition: {x: -6.91, y: 15.662212, z: -4.0778265}
+  m_LocalPosition: {x: -49.793, y: 25.442213, z: -4.279827}
   m_LocalScale: {x: 1.0000252, y: 0.9649095, z: 1.0396217}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4069,10 +4069,10 @@ MonoBehaviour:
   GrabSlot: {fileID: 37246777}
   PlayerChecker: {fileID: 7218209428545212550}
   playerCamera: {fileID: 857630749}
+  mainCamera: {fileID: 0}
   wallCamera: {fileID: 1642714242}
   wallCameraOffSet: {x: 0, y: 1, z: 0}
   playerInTrigger: 0
-  isWall: 0
   wallRestrictionMin: 2
   wallRestrictionMax: 23
 --- !u!65 &1074535361
@@ -7457,15 +7457,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6366437273755816361, guid: 73faa237ead89eb42abab1dcf83a57d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.91
+      value: -49.793
       objectReference: {fileID: 0}
     - target: {fileID: 6366437273755816361, guid: 73faa237ead89eb42abab1dcf83a57d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.46
+      value: 14.24
       objectReference: {fileID: 0}
     - target: {fileID: 6366437273755816361, guid: 73faa237ead89eb42abab1dcf83a57d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.01
+      value: 2.808
       objectReference: {fileID: 0}
     - target: {fileID: 6366437273755816361, guid: 73faa237ead89eb42abab1dcf83a57d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7673,7 +7673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: e8829f0370568634bbf11e530e2ed612, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.12
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: e8829f0370568634bbf11e530e2ed612, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7885,6 +7885,10 @@ PrefabInstance:
       propertyPath: WallPlayer
       value: 
       objectReference: {fileID: 7838697625025222908}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: wallCamera
       value: 
@@ -8126,6 +8130,7 @@ GameObject:
   - component: {fileID: 4448263276003148870}
   - component: {fileID: 6103302990576524217}
   - component: {fileID: 771519009575314399}
+  - component: {fileID: 7838697625025222909}
   m_Layer: 0
   m_Name: WallPlayer
   m_TagString: Player
@@ -8133,6 +8138,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!65 &7838697625025222909
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7838697625025222908}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 3.8414648, z: 3.5994291}
+  m_Center: {x: 3.40736e-14, y: -1.4207324, z: 1.2997146}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

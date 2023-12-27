@@ -11,7 +11,7 @@ public class PickUpScript : MonoBehaviour
 
     private void Start()
     {
-
+        Debug.Log("are his hands empty " + isEmpty);
     }
 
     // Update is called once per frame

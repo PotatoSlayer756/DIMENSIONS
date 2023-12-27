@@ -11,13 +11,14 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
-    public bool isOnGround = true, isOnElevator = false;
+    public bool isOnGround = true;
 
     public Rigidbody rb;
     public GameObject PanelMenu, portal;
     public Vector3 respawnPos;
-    public zonescript zone;
+    public CinemachineVirtualCamera playerCamera;
 
+    private zonescript zone;
     private TimerScript timerScript;
     private SceneLoaderScript sceneLoaderScript;
 
@@ -71,17 +72,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    void FixedUpdate()
-    {
-        if (isOnElevator)
-        {
-            // Calculate movement direction
-            Vector3 movement = transform.right * playerSpeed * Time.fixedDeltaTime;
-
-            // Move the object using Rigidbody's velocity
-            GetComponent<Rigidbody>().velocity = movement;
-        }
-    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -90,26 +80,15 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = true;
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Elevator"))
-        {
-            isOnElevator = true;
-        }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Elevator"))
-        {
-            isOnElevator = false;
-        }
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("Death")))
         {
             print("player respawns");
             transform.position = respawnPos;
+            playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, 0f, playerCamera.transform.eulerAngles.z);
+
         }
         if (other.CompareTag("CheckPoint"))
         {

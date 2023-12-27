@@ -7,10 +7,9 @@ public class SwapScript : MonoBehaviour
 {
     public GameObject Player, WallPlayer, GrabSlot, PlayerChecker;
     public CinemachineVirtualCamera playerCamera;
-    public Camera wallCamera;
+    public Camera mainCamera, wallCamera;
     public Vector3 wallCameraOffSet;
     public bool playerInTrigger = false;
-    public bool isWall = false;
     public float wallRestrictionMin, wallRestrictionMax;
     private PickUpScript pickup;
     private WallMoving wp;
@@ -26,33 +25,34 @@ public class SwapScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
-            print(playerInTrigger);
+            print("Is he in trigger? " + playerInTrigger);
+            print("Are his hands empty? " + pickup.isEmpty);
             if (playerInTrigger && pickup.isEmpty)
             {
                 print("swapping");
-                switch (isWall)
+                switch (Player.activeSelf)
                 {
-                    case false:
+                    case true:
                         WallPlayer.transform.position = gameObject.transform.position + wallCameraOffSet;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
-                        Player.SetActive(false);
                         WallPlayer.SetActive(true);
+                        print("that nigga active? " + WallPlayer.activeSelf);
+                        Player.SetActive(false);
                         playerCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
-                        playerCamera.transform.rotation = wallCamera.transform.rotation;
                         print("player check");
-                        isWall = true;
+                        print("that nigga still active? " + WallPlayer.activeSelf);
                         break;
 
-                    case true:
+                    case false:
                         Player.transform.position = PlayerChecker.transform.position;
                         WallPlayer.SetActive(false);
                         Player.SetActive(true);
                         playerCamera.gameObject.SetActive(true);
                         wallCamera.gameObject.SetActive(false);
-                        playerCamera.transform.rotation = wallCamera.transform.rotation;
+                        float wallCameraYRotation = wallCamera.transform.eulerAngles.y;
+                        playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, wallCameraYRotation, playerCamera.transform.eulerAngles.z);
                         print("wallplayer check");
-                        isWall = false;
                         break;
                 }
             }

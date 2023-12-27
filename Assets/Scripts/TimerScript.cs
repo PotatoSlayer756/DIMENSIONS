@@ -13,6 +13,7 @@ public class TimerScript : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
+        isRunning = true;
     }
 
     void Update()
