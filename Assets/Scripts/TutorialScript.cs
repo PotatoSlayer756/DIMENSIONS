@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TutorialScript : MonoBehaviour
 {
-    public Text tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4;
+    public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4;
     public float displayDuration = 1f; // Duration in seconds
     public float fadeDuration = 1f; // Duration in seconds
 
@@ -39,37 +40,29 @@ public class TutorialScript : MonoBehaviour
     {
         if (other.gameObject.name == "TutorTrigger1")
         {
-            StartCoroutine(FadeOutText(tutorialtext1));
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext1, 1.0f));
         }
         if (other.gameObject.name == "TutorTrigger2")
         {
-            StartCoroutine(FadeOutText(tutorialtext2));
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext2, 1.0f));
         }
         if (other.gameObject.name == "TutorTrigger3")
         {
-            StartCoroutine(FadeOutText(tutorialtext3));
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext3, 1.0f));
         }
         if (other.gameObject.name == "TutorTrigger4")
         {
-            StartCoroutine(FadeOutText(tutorialtext4));
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext4, 1.0f));
         }
     }
-    IEnumerator FadeOutText(Text tutorialtext)
+    public IEnumerator FadeTextToZeroAlpha(TextMeshProUGUI textToFade, float t)
     {
-        // Get the initial color of the text
-        Color textColor = tutorialtext.color;
-
-        // Gradually reduce the text's alpha value over the fade duration
-        float elapsedTime = 0f;
-        while (elapsedTime < fadeDuration)
+        Color newColor = textToFade.color;
+        while (textToFade.color.a > 0)
         {
-            float alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
-            textColor.a = alpha;
-            tutorialtext.color = textColor;
-            elapsedTime += Time.deltaTime;
+            newColor.a -= Time.deltaTime / t;
+            textToFade.color = newColor;
             yield return null;
         }
-        // Hide the text
-        tutorialtext.enabled = false;
     }
 }
