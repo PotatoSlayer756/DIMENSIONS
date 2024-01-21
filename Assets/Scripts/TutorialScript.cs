@@ -10,12 +10,17 @@ public class TutorialScript : MonoBehaviour
     public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4;
     public float displayDuration = 1f; // Duration in seconds
     public float fadeDuration = 1f; // Duration in seconds
+    bool isNotWall;
 
     void Start()
     {
-
+        
     }
-
+    private void Update()
+    {
+        isNotWall = gameObject.activeSelf;
+        print(isNotWall);
+    }
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.name == "TutorTrigger1")
@@ -24,7 +29,6 @@ public class TutorialScript : MonoBehaviour
         }
         if (other.gameObject.name == "TutorTrigger2")
         {
-            print("aaeee");
             tutorialtext2.gameObject.SetActive(true);
         }
         if (other.gameObject.name == "TutorTrigger3")
@@ -46,7 +50,7 @@ public class TutorialScript : MonoBehaviour
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext2, 1.0f));
         }
-        if (other.gameObject.name == "TutorTrigger3")
+        if (other.gameObject.name == "SwapTrigger (1)")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext3, 1.0f));
         }
