@@ -10,7 +10,6 @@ public class BoxActivatorScript : MonoBehaviour
     void Start()
     {
         animator = activatingObject.GetComponent<Animator>();
-        animator.enabled = false;
     }
 
     void Update()
@@ -20,8 +19,20 @@ public class BoxActivatorScript : MonoBehaviour
     {
         if (collision.gameObject == neededObject)
         {
-            print("pressed");
-            animator.enabled = true;
+            if (animator != null)
+            {
+                animator.SetTrigger("PlayerEnt");
+            }
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject == neededObject)
+        {
+            if (animator != null)
+            {
+                animator.SetTrigger("PlayerExi");
+            }
         }
     }
 }

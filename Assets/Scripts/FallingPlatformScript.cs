@@ -8,13 +8,15 @@ public class FallingPlatformScript : MonoBehaviour
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
-        animator.enabled = false;
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if(animator != null)
         {
-            animator.enabled = true;
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                animator.SetTrigger("PlayerEnt");
+            }
         }
-    }
+    }       
 }
