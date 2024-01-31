@@ -14,7 +14,7 @@ public class GateScript : MonoBehaviour
     private void Update()
     {
         keyCount = movement.keyCount;
-        if(keyCount > 3)
+        if(keyCount == 3)
         {
             gameObject.SetActive(false);
         }
