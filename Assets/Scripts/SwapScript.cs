@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 public class SwapScript : MonoBehaviour
 {
-    public GameObject Player, WallPlayer, GrabSlot, PlayerChecker;
+    public GameObject Player, WallPlayer, GrabSlot, PlayerChecker, WallPlayerSlot;
     public CinemachineVirtualCamera playerCamera;
     public Camera mainCamera, wallCamera;
-    public Vector3 wallCameraOffSet;
     public bool playerInTrigger = false;
     public float wallRestrictionMin, wallRestrictionMax;
     private PickUpScript pickup;
@@ -33,22 +32,22 @@ public class SwapScript : MonoBehaviour
                 switch (Player.activeSelf)
                 {
                     case true:
-                        WallPlayer.transform.position = gameObject.transform.position + wallCameraOffSet;
+                        WallPlayer.transform.position = WallPlayerSlot.gameObject.transform.position;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
                         WallPlayer.SetActive(true);
                         print("that nigga active? " + WallPlayer.activeSelf);
                         Player.SetActive(false);
-                        playerCamera.gameObject.SetActive(false);
+                        mainCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
                         print("player check");
                         print("that nigga still active? " + WallPlayer.activeSelf);
                         break;
 
                     case false:
-                        Player.transform.position = PlayerChecker.transform.position;
+                        Player.transform.position = WallPlayerSlot.gameObject.transform.position;
                         WallPlayer.SetActive(false);
                         Player.SetActive(true);
-                        playerCamera.gameObject.SetActive(true);
+                        mainCamera.gameObject.SetActive(true);
                         wallCamera.gameObject.SetActive(false);
                         float wallCameraYRotation = wallCamera.transform.eulerAngles.y;
                         playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, wallCameraYRotation, playerCamera.transform.eulerAngles.z);

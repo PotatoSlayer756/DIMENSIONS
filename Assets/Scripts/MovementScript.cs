@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public GameObject PanelMenu, portal;
     public Vector3 respawnPos;
+    public Vector3 respawnR;
     public CinemachineVirtualCamera playerCamera;
 
     private zonescript zone;
@@ -88,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
         {
             print("player respawns");
             transform.position = respawnPos;
+            print("respawned at - " + respawnPos);
             playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, 0f, playerCamera.transform.eulerAngles.z);
 
         }
@@ -95,6 +97,8 @@ public class PlayerMovement : MonoBehaviour
         {
             zone = other.GetComponent<zonescript>();
             respawnPos = zone.CheckpointXYZ;
+            respawnR = new Vector3(0, zone.CheckpointR, 0);
+            print("new checkpoint set - " + respawnPos);
         }
         if (other.CompareTag("Portal"))
         {
