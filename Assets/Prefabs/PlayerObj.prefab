@@ -218,9 +218,13 @@ MonoBehaviour:
   playerSpeed: 5
   jumpForce: 5
   isOnGround: 1
+  keyCount: 0
   rb: {fileID: 7302523132625054841}
   PanelMenu: {fileID: 0}
   portal: {fileID: 0}
+  respawnPos: {x: 0, y: 0, z: 0}
+  respawnR: {x: 0, y: 0, z: 0}
+  playerCamera: {fileID: 0}
 --- !u!54 &7302523132625054841
 Rigidbody:
   m_ObjectHideFlags: 0
