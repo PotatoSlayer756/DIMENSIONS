@@ -12,11 +12,12 @@ TagManager:
   - Wall
   - Elevator
   - Key
+  - LaserGun
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DecalLayer
   - Water
   - UI
   - Pixel

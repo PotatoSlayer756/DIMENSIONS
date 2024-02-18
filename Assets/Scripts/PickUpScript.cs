@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PickUpScript : MonoBehaviour
 {
-    public bool isEmpty = true, canPickUp;
+    public bool isEmpty = true, canPickUp, canRotate = false;
     public GameObject GrabSlot, heldObj;
     private Rigidbody rb;
     private BoxCollider bxc;
+    public float Rotation_Smoothness; //Believe it or not, adjusting this before anything else is the best way to go.
+
+    private float Resulting_Value_from_Input;
+    private Quaternion Quaternion_Rotate_From;
+    private Quaternion Quaternion_Rotate_To;
 
     private void Start()
     {
@@ -17,19 +22,28 @@ public class PickUpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1) && canPickUp)
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            if (isEmpty)
+            if (canPickUp)
             {
-                PickUpObject(heldObj, GrabSlot);
-                isEmpty = false;
+                if (isEmpty)
+                {
+                    PickUpObject(heldObj, GrabSlot);
+                    isEmpty = false;
+                }
+                else if (!isEmpty)
+                {
+                    print(heldObj);
+                    DropObject(heldObj);
+                    isEmpty = true;
+                }
             }
-            else if (!isEmpty)
+            if (canRotate)
             {
-                print(heldObj);
-                DropObject(heldObj);
-                isEmpty = true;
+                print("Can Rotate");
+                RotateLaserTurett(heldObj);
             }
+
         }
     }
     void PickUpObject(GameObject heldObj, GameObject GrabSlot)
@@ -57,6 +71,14 @@ public class PickUpScript : MonoBehaviour
             print("putted down");
         }
     }
+    
+    void RotateLaserTurett(GameObject heldObj)
+    {
+        if (heldObj != null)
+        {
+            heldObj.transform.transform.Rotate(0, 90, 0);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -65,12 +87,22 @@ public class PickUpScript : MonoBehaviour
             canPickUp = true;
             heldObj = other.gameObject;
         }
+        if (other.CompareTag("LaserGun"))
+        {
+            canRotate = true;
+            heldObj = other.gameObject;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Pickable"))
         {
             canPickUp = false;
+            heldObj = null;
+        }
+        if (other.CompareTag("LaserGun"))
+        {
+            canRotate = false;
             heldObj = null;
         }
     }
