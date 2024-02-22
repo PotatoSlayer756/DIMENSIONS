@@ -18,5 +18,15 @@ public class FallingPlatformScript : MonoBehaviour
                 animator.SetTrigger("PlayerEnt");
             }
         }
-    }       
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (animator != null)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                animator.ResetTrigger("PlayerEnt");
+            }
+        }
+    }
 }

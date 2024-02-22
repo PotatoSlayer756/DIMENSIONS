@@ -39,24 +39,24 @@ public class TutorialScript : MonoBehaviour
         {
             tutorialtext4.gameObject.SetActive(true);
         }
+        if (other.gameObject.name == "TutorTrigger2End")
+        {
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext2, 1.0f));
+        }
+        if (other.gameObject.name == "TutorTrigger3End")
+        {
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext3, 1.0f));
+        }
+        if (other.gameObject.name == "TutorTrigger4End")
+        {
+            StartCoroutine(FadeTextToZeroAlpha(tutorialtext4, 1.0f));
+        }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "TutorTrigger1")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext1, 1.0f));
-        }
-        if (other.gameObject.name == "TutorTrigger2")
-        {
-            StartCoroutine(FadeTextToZeroAlpha(tutorialtext2, 1.0f));
-        }
-        if (other.gameObject.name == "SwapTrigger (1)")
-        {
-            StartCoroutine(FadeTextToZeroAlpha(tutorialtext3, 1.0f));
-        }
-        if (other.gameObject.name == "TutorTrigger4")
-        {
-            StartCoroutine(FadeTextToZeroAlpha(tutorialtext4, 1.0f));
         }
     }
     public IEnumerator FadeTextToZeroAlpha(TextMeshProUGUI textToFade, float t)
