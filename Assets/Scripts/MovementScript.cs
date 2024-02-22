@@ -103,8 +103,6 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Portal"))
         {
             timerScript.StopTimer();
-            PanelMenu.SetActive(true);
-            gameObject.SetActive(false);
         }
         if (other.CompareTag("Key"))
         {

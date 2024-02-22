@@ -185,8 +185,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEmpty: 0
   canPickUp: 0
+  canRotate: 0
   GrabSlot: {fileID: 2102401825672525845}
   heldObj: {fileID: 0}
+  Rotation_Smoothness: 0
 --- !u!23 &867143665784506659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -368,7 +370,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &2348774418285745678
 BoxCollider:
@@ -627,7 +629,7 @@ Transform:
   m_GameObject: {fileID: 7596558139328922952}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44150585, y: -0, z: -0, w: 0.8972584}
-  m_LocalPosition: {x: 0.009167467, y: 5.600266, z: -4.6145787}
+  m_LocalPosition: {x: 0.009167467, y: 5.6002655, z: -4.6145782}
   m_LocalScale: {x: 0.6496882, y: 0.5657263, z: 0.5483884}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -710,7 +712,7 @@ Transform:
   m_GameObject: {fileID: 8728370939549008454}
   serializedVersion: 2
   m_LocalRotation: {x: 0.44150585, y: -0, z: -0, w: 0.8972584}
-  m_LocalPosition: {x: 0.009167467, y: 5.600266, z: -4.6145787}
+  m_LocalPosition: {x: 0.009167467, y: 5.6002655, z: -4.6145782}
   m_LocalScale: {x: 0.6497045, y: 0.54587466, z: 0.5701165}
   m_ConstrainProportionsScale: 0
   m_Children: []
