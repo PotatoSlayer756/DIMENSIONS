@@ -8,15 +8,16 @@ public class PickUpScript : MonoBehaviour
     public GameObject GrabSlot, heldObj;
     private Rigidbody rb;
     private BoxCollider bxc;
-    public float Rotation_Smoothness; //Believe it or not, adjusting this before anything else is the best way to go.
 
     private float Resulting_Value_from_Input;
     private Quaternion Quaternion_Rotate_From;
     private Quaternion Quaternion_Rotate_To;
 
+    PlayerMovement playerMovement;
     private void Start()
     {
         Debug.Log("are his hands empty " + isEmpty);
+        playerMovement = GetComponentInParent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -50,6 +51,7 @@ public class PickUpScript : MonoBehaviour
     {
         if(heldObj != null)
         {
+            playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
             bxc = heldObj.GetComponent<BoxCollider>();
             heldObj.transform.position = GrabSlot.transform.position;
@@ -63,6 +65,7 @@ public class PickUpScript : MonoBehaviour
     {
         if(heldObj != null)
         {
+            playerMovement.isHolding = false;
             rb = heldObj.GetComponent<Rigidbody>();
             bxc = heldObj.GetComponent<BoxCollider>();
             rb.isKinematic = false;

@@ -1,4 +1,5 @@
 using Cinemachine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
-    public bool isOnGround = true;
+    public bool isOnGround = true, isHolding = false;
     public int keyCount = 0;
 
     public Rigidbody rb;
-    public GameObject PanelMenu, portal;
+    public GameObject PanelMenu, portal, playerModel;
     public Vector3 respawnPos;
     public Vector3 respawnR;
     public CinemachineVirtualCamera playerCamera;
@@ -25,14 +26,17 @@ public class PlayerMovement : MonoBehaviour
     private SceneLoaderScript sceneLoaderScript;
 
     Vector3 playerPosition;
-
+    Animator anim;
+    private void Awake()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
         PanelMenu.SetActive(false);
-
     }
 
     void Update()
@@ -64,6 +68,16 @@ public class PlayerMovement : MonoBehaviour
             rb.MoveRotation(newRotation);
         }
 
+        print(anim.GetFloat("Speed"));
+        if (moveInput != 0f || strafeInput != 0f)
+        {
+            anim.SetFloat("Speed", 2);
+        }
+        else
+        {
+            anim.SetFloat("Speed", 0);
+        }
+        anim.SetBool("IsHolding", isHolding);
         // Let the player jump 
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -71,8 +85,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
+                anim.SetBool("IsOnGround", isOnGround);
             }
         }
+        anim.transform.localPosition = Vector3.zero;
+        anim.transform.localEulerAngles = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -80,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            anim.SetBool("IsOnGround", isOnGround);
         }
     }
 
