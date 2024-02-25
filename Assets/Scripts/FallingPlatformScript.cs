@@ -25,7 +25,7 @@ public class FallingPlatformScript : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                animator.ResetTrigger("PlayerEnt");
+                animator.ResetTrigger("PlayerExi");
             }
         }
     }

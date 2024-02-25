@@ -19,7 +19,6 @@ public class TutorialScript : MonoBehaviour
     private void Update()
     {
         isNotWall = gameObject.activeSelf;
-        print(isNotWall);
     }
     void OnTriggerEnter (Collider other)
     {

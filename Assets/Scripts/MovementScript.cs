@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             rb.MoveRotation(newRotation);
         }
 
-        /*if (moveInput != 0f || strafeInput != 0f)
+        if (moveInput != 0f || strafeInput != 0f)
         {
             anim.SetFloat("Speed", 2);
         }
@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetFloat("Speed", 0);
         
-        anim.SetBool("IsHolding", isHolding);}*/
+        anim.SetBool("IsHolding", isHolding);}
         // Let the player jump 
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -88,8 +88,8 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetBool("IsOnGround", isOnGround);
             }
         }
-        //anim.transform.localPosition = Vector3.zero;
-        //anim.transform.localEulerAngles = Vector3.zero;
+        anim.transform.localPosition = Vector3.zero;
+        anim.transform.localEulerAngles = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
