@@ -1,24 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PortalScript : MonoBehaviour
 {
-    public GameObject PanelMenu;
+    public GameObject Fade;
     TimerScript timerScript;
+    Animator fadeAnim;
+    LevelFadingScript levelFadingScript;
 
     private void Start()
     {
-        PanelMenu.SetActive(false);
+        fadeAnim = Fade.GetComponent<Animator>();
         timerScript = gameObject.GetComponent<TimerScript>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.SetActive(false);
             timerScript.StopTimer();
-            PanelMenu.SetActive(true);
+            fadeAnim.SetTrigger("FadeOut");
         }
     }
+
 }

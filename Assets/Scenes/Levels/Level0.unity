@@ -223,7 +223,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!1 &44539768
 GameObject:
@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822892303888582443, guid: bf148bacf4be3284dae701b2bd249601, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -29.99
+      value: -30.51
       objectReference: {fileID: 0}
     - target: {fileID: 4822892303888582443, guid: bf148bacf4be3284dae701b2bd249601, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3064,7 +3064,6 @@ GameObject:
   m_Component:
   - component: {fileID: 735361321}
   - component: {fileID: 735361324}
-  - component: {fileID: 735361323}
   - component: {fileID: 735361322}
   m_Layer: 0
   m_Name: PixelCamera
@@ -3217,14 +3216,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &735361323
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735361320}
-  m_Enabled: 1
 --- !u!20 &735361324
 Camera:
   m_ObjectHideFlags: 0
@@ -4201,7 +4192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e339675cd22c1241879ee68af5408e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PanelMenu: {fileID: 0}
+  Fade: {fileID: 168297461}
 --- !u!1001 &1610532077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5754,7 +5745,7 @@ Transform:
   m_GameObject: {fileID: 1419275690161751053}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.95, y: 7.88, z: -9.26}
+  m_LocalPosition: {x: 162.5, y: 10.43, z: 5.8}
   m_LocalScale: {x: 1.5392, y: 1.9049706, z: 1.6861936}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5773,7 +5764,7 @@ Transform:
   m_GameObject: {fileID: 4842103006529339773}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -44.93503, y: 16.20926, z: -20.518633}
+  m_LocalPosition: {x: 162.51497, y: 18.75926, z: -5.458633}
   m_LocalScale: {x: 1.0000252, y: 0.9649096, z: 1.0396218}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5854,12 +5845,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 5
-  jumpForce: 5
+  jumpForce: 7.99
   isOnGround: 1
   isHolding: 0
   keyCount: 0
   rb: {fileID: 6864675508082274114}
-  PanelMenu: {fileID: 0}
   portal: {fileID: 1453828967}
   playerModel: {fileID: 0}
   respawnPos: {x: -44.95, y: 7.88, z: -9.26}
@@ -5916,7 +5906,7 @@ Transform:
   m_GameObject: {fileID: 6016696373836809843}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -44.93503, y: 16.20926, z: -20.518633}
+  m_LocalPosition: {x: 162.51497, y: 18.75926, z: -5.458633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
