@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public int keyCount = 0;
 
     public Rigidbody rb;
-    public GameObject portal, playerModel;
+    public GameObject portal;
     public Vector3 respawnPos;
     public Vector3 respawnR;
     public CinemachineVirtualCamera playerCamera;
@@ -69,13 +69,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveInput != 0f || strafeInput != 0f)
         {
-            //anim.SetFloat("Speed", 2);
+            anim.SetFloat("Speed", 2);
         }
         else
         {
-            //anim.SetFloat("Speed", 0);
-
-            //anim.SetBool("IsHolding", isHolding);}
+            anim.SetFloat("Speed", 0);
+            anim.SetBool("IsHolding", isHolding);
             // Let the player jump       
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
@@ -85,11 +84,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
-                //anim.SetBool("IsOnGround", isOnGround);
+                anim.SetBool("IsOnGround", isOnGround);
             }
         }
-        //anim.transform.localPosition = Vector3.zero;
-        //anim.transform.localEulerAngles = Vector3.zero;
+        anim.transform.localPosition = Vector3.zero;
+        anim.transform.localEulerAngles = Vector3.zero;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -97,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
-            //anim.SetBool("IsOnGround", isOnGround);
+            anim.SetBool("IsOnGround", isOnGround);
         }
     }
 
