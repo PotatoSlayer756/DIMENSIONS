@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
-    public bool isOnGround = true, isHolding = false;
+    public bool isOnGround = true, isHolding = false, isLasered = false;
     public int keyCount = 0;
 
     public Rigidbody rb;
@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public CinemachineVirtualCamera playerCamera;
 
     private zonescript zone;
+    private PickUpScript pickUpScript;
     private TimerScript timerScript;
     private SceneLoaderScript sceneLoaderScript;
 
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Start()
     {
+        pickUpScript = GetComponentInChildren<PickUpScript>();
         rb = GetComponent<Rigidbody>();
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
@@ -79,13 +81,16 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
-            print(isOnGround);
             if (isOnGround)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
                 anim.SetBool("IsOnGround", isOnGround);
             }
+        }
+        if (isLasered)
+        {
+            PlayerRespawn(respawnPos, playerCamera);
         }
         anim.transform.localPosition = Vector3.zero;
         anim.transform.localEulerAngles = Vector3.zero;
@@ -104,10 +109,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((other.CompareTag("Death")))
         {
-            print("player respawns");
-            transform.position = respawnPos;
-            print("respawned at - " + respawnPos);
-            playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, 0f, playerCamera.transform.eulerAngles.z);
+            PlayerRespawn(respawnPos, playerCamera);
 
         }
         if (other.CompareTag("CheckPoint"))
@@ -127,4 +129,14 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
+    public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera)
+    {
+        pickUpScript.DropObject(pickUpScript.childObj);
+        isLasered = false;
+        print("player respawns");
+        transform.position = respawnPos;
+        print("respawned at - " + respawnPos);
+        playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, 0f, playerCamera.transform.eulerAngles.z);
+    }
+    
 }

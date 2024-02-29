@@ -2004,9 +2004,7 @@ MonoBehaviour:
   isHolding: 0
   keyCount: 0
   rb: {fileID: 7375289978504223285}
-  PanelMenu: {fileID: 0}
   portal: {fileID: 0}
-  playerModel: {fileID: 0}
   respawnPos: {x: -49.51, y: 12.73, z: 2.66}
   respawnR: {x: 0, y: 0, z: 0}
   playerCamera: {fileID: 0}

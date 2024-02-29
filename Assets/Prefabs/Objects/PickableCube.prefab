@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4316616779202597119}
   - component: {fileID: 4479811350806092002}
   - component: {fileID: 6496920734158247478}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PickableCube
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 9183436042655564072}
   - component: {fileID: 5305884540006503880}
   - component: {fileID: 8484211670870765134}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5083228881522890704}
     m_Modifications:
+    - target: {fileID: 4572842182783854995, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5057058464190631955, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.83139217
@@ -239,6 +243,10 @@ PrefabInstance:
     - target: {fileID: 5934471091473814900, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
       propertyPath: m_Name
       value: BoxReady
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934471091473814900, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

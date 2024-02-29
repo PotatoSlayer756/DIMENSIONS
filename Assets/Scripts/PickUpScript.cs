@@ -5,9 +5,8 @@ using UnityEngine;
 public class PickUpScript : MonoBehaviour
 {
     public bool isEmpty = true, canPickUp, canRotate = false;
-    public GameObject GrabSlot, heldObj;
+    public GameObject GrabSlot, heldObj, childObj;
     private Rigidbody rb;
-    private BoxCollider bxc;
 
     private float Resulting_Value_from_Input;
     private Quaternion Quaternion_Rotate_From;
@@ -23,22 +22,24 @@ public class PickUpScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1))
         {
-            if (canPickUp)
+            if (isEmpty)
             {
-                if (isEmpty)
+                if (canPickUp)
                 {
                     PickUpObject(heldObj, GrabSlot);
                     isEmpty = false;
                 }
-                else if (!isEmpty)
-                {
-                    print(heldObj);
-                    DropObject(heldObj);
-                    isEmpty = true;
-                }
             }
+            else if (!isEmpty)
+            {
+                DropObject(childObj);
+                isEmpty = true;
+            }
+
+
             if (canRotate)
             {
                 print("Can Rotate");
@@ -47,30 +48,31 @@ public class PickUpScript : MonoBehaviour
 
         }
     }
-    void PickUpObject(GameObject heldObj, GameObject GrabSlot)
+    public void PickUpObject(GameObject heldObj, GameObject GrabSlot)
     {
         if(heldObj != null)
         {
             playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
-            bxc = heldObj.GetComponent<BoxCollider>();
             heldObj.transform.position = GrabSlot.transform.position;
             heldObj.transform.SetParent(GrabSlot.transform);
             rb.isKinematic = true;
-            bxc.isTrigger = true;
+            childObj = heldObj;
+            print(childObj);
+            Physics.IgnoreLayerCollision(7, 8);
             print("picked up");
         }
     }
-    void DropObject(GameObject heldObj)
-    {
-        if(heldObj != null)
+    public void DropObject(GameObject heldObj)
+    {        
+        if(childObj != null)
         {
             playerMovement.isHolding = false;
             rb = heldObj.GetComponent<Rigidbody>();
-            bxc = heldObj.GetComponent<BoxCollider>();
             rb.isKinematic = false;
-            bxc.isTrigger = false;
-            heldObj.transform.parent = null;
+            childObj.transform.parent = null;
+            Physics.IgnoreLayerCollision(7, 8, false);
+            childObj = null;
             print("putted down");
         }
     }
@@ -108,5 +110,13 @@ public class PickUpScript : MonoBehaviour
             canRotate = false;
             heldObj = null;
         }
+    }
+    public void ObjectGotDestroyed()
+    {
+        playerMovement.isHolding = false;
+        rb = heldObj.GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        heldObj.transform.parent = null;
+        print("putted down");
     }
 }
