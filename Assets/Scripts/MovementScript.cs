@@ -13,13 +13,14 @@ public class PlayerMovement : MonoBehaviour
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
     public bool isOnGround = true, isHolding = false, isLasered = false;
-    public int keyCount = 0;
+    public int keyCount = 0, CameraRotation;
 
     public Rigidbody rb;
     public GameObject portal;
     public Vector3 respawnPos;
-    public Vector3 respawnR;
+    public float respawnR;
     public CinemachineVirtualCamera playerCamera;
+    public GameObject WallPlayer;
 
     private zonescript zone;
     private PickUpScript pickUpScript;
@@ -116,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         {
             zone = other.GetComponent<zonescript>();
             respawnPos = zone.CheckpointXYZ;
-            respawnR = new Vector3(0, zone.CheckpointR, 0);
+            respawnR = zone.CheckpointR;
             print("new checkpoint set - " + respawnPos);
         }
         if (other.CompareTag("Portal"))
@@ -135,8 +136,9 @@ public class PlayerMovement : MonoBehaviour
         isLasered = false;
         print("player respawns");
         transform.position = respawnPos;
-        print("respawned at - " + respawnPos);
-        playerCamera.transform.eulerAngles = new Vector3(playerCamera.transform.eulerAngles.x, 0f, playerCamera.transform.eulerAngles.z);
+        print("respawned at - " + respawnPos + ", with rotation - " + respawnR);
+        playerCamera.transform.rotation = Quaternion.Euler(35, respawnR, 0);
+        WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0); //баг 003
     }
-    
+
 }

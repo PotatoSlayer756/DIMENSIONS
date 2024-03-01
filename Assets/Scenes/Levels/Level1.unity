@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1831,9 +1831,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798124808}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 93.09711, y: -17.2325, z: 17.14}
-  m_LocalScale: {x: 22.509893, y: 28.861143, z: 2.072073}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 93.09711, y: -17.232502, z: 17.14}
+  m_LocalScale: {x: 22.509893, y: 28.861141, z: 2.072073}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5229,8 +5229,9 @@ MonoBehaviour:
   rb: {fileID: 7375289978504223285}
   portal: {fileID: 1547989945}
   respawnPos: {x: -49.51, y: 12.73, z: 2.66}
-  respawnR: {x: 0, y: 0, z: 0}
-  playerCamera: {fileID: 0}
+  respawnR: 0
+  playerCamera: {fileID: 7764649931141011216}
+  WallPlayer: {fileID: 7838697625025222908}
 --- !u!114 &5449273178080421640
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -6186,7 +6187,6 @@ SceneRoots:
   - {fileID: 306209430}
   - {fileID: 343670252}
   - {fileID: 1118289008258676437}
-  - {fileID: 798124812}
   - {fileID: 6581920462094985189}
   - {fileID: 3544520622495100368}
   - {fileID: 4448263276003148870}
@@ -6204,6 +6204,7 @@ SceneRoots:
   - {fileID: 1251275541}
   - {fileID: 1686639748}
   - {fileID: 3520480807527281415}
+  - {fileID: 798124812}
   - {fileID: 697959955}
   - {fileID: 781044561}
   - {fileID: 1919567388}
