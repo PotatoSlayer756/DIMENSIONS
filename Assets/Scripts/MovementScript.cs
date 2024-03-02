@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f;
-    public bool isOnGround = true, isHolding = false, isLasered = false;
+    public bool isOnGround, isHolding = false, isLasered = false;
     public int keyCount = 0, CameraRotation;
 
     public Rigidbody rb;
@@ -77,9 +77,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetFloat("Speed", 0);
-            anim.SetBool("IsHolding", isHolding);
-            // Let the player jump       
         }
+        anim.SetBool("IsHolding", isHolding);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isOnGround)
@@ -97,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         anim.transform.localEulerAngles = Vector3.zero;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
@@ -105,6 +104,14 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("IsOnGround", isOnGround);
         }
     }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = false;
+            anim.SetBool("IsOnGround", isOnGround);
+        }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
