@@ -415,6 +415,7 @@ MonoBehaviour:
   - Shake that ass nigga!
   dialogueSpeed: 0.01
   dialogueCanStart: 0
+  dialogueWindow: {fileID: 942289005}
 --- !u!4 &822383640
 Transform:
   m_ObjectHideFlags: 0
@@ -552,7 +553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueScript: {fileID: 0}
   dialogueController: {fileID: 822383638}
-  GrabSlot: {fileID: 0}
+  GrabSlot: {fileID: 2098458342504565753}
 --- !u!1 &942289003
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &942289004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -635,7 +636,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942289003}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c4e282686abf7614e8a1936e56240e60, type: 2}
   m_CullingMode: 0

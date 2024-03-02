@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class DialogueController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class DialogueController : MonoBehaviour
     public float dialogueSpeed;
     [HideInInspector]
     public bool dialogueCanStart = false;
+    public RawImage dialogueWindow;
     void Start()
     {
         
@@ -21,7 +24,12 @@ public class DialogueController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            NextSentence();
+            if (dialogueCanStart)
+            {
+                Debug.Log("dialogue started");
+                dialogueWindow.gameObject.SetActive(true);
+                NextSentence();
+            }
         }
         else
         {
@@ -34,6 +42,12 @@ public class DialogueController : MonoBehaviour
         {
             dialogueText.text = "";
             StartCoroutine(WriteSentence());
+        }
+        else
+        {
+            dialogueText.text = "";
+            dialogueWindow.gameObject.SetActive(false);
+            index = 0;
         }
     }
 
