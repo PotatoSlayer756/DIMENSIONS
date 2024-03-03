@@ -9,7 +9,7 @@ public class FallingPlatformScript : MonoBehaviour
     {
         animator = gameObject.GetComponent<Animator>();
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(animator != null)
         {
@@ -19,7 +19,7 @@ public class FallingPlatformScript : MonoBehaviour
             }
         }
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (animator != null)
         {
