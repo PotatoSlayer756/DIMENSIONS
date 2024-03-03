@@ -27,6 +27,7 @@ public class groundcheckscript : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             movementScript.isOnGround = true;
+            Debug.Log("is on ground - " + movementScript.isOnGround);
             anim.SetBool("IsOnGround", movementScript.isOnGround);
         }
     }
@@ -35,6 +36,7 @@ public class groundcheckscript : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             movementScript.isOnGround = false;
+            Debug.Log("is on ground - " + movementScript.isOnGround);
             anim.SetBool("IsOnGround", movementScript.isOnGround);
         }
     }

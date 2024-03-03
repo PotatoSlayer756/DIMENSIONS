@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -350,6 +350,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1029094196}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &267658641
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 267658642}
+  - component: {fileID: 267658644}
+  - component: {fileID: 267658643}
+  m_Layer: 8
+  m_Name: GroundChecker
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &267658642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267658641}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.787, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6581920462094985189}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &267658643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267658641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e0a8600ef1ce54c999bfe3cfc07e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3074892644801786234}
+  playermodel: {fileID: 1085994186}
+--- !u!65 &267658644
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267658641}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.22592017, z: 1.0403253}
+  m_Center: {x: 0, y: -0.21349016, z: -0.006245892}
 --- !u!1 &287664266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2485,11 @@ PrefabInstance:
 --- !u!4 &1085994185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 17a820f2d034fe046b0e5bda6ba91dac, type: 3}
+  m_PrefabInstance: {fileID: 1085994184}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1085994186 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 17a820f2d034fe046b0e5bda6ba91dac, type: 3}
   m_PrefabInstance: {fileID: 1085994184}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1119851323
@@ -4538,7 +4611,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 28ed21fab64052b42bfdd696e0a9b6bc, type: 3}
+    m_Font: {fileID: 12800000, guid: 3656de5f35fce9f44b432ab4f8dd03a9, type: 3}
     m_FontSize: 57
     m_FontStyle: 0
     m_BestFit: 0
@@ -4772,7 +4845,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 747, y: 426}
-  m_SizeDelta: {x: 171.4478, y: 65.3549}
+  m_SizeDelta: {x: 245, y: 65.3549}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!65 &3392264272174327271
 BoxCollider:
@@ -5226,6 +5299,8 @@ MonoBehaviour:
   isHolding: 0
   isLasered: 0
   keyCount: 0
+  CameraRotation: 0
+  deathcause: 
   rb: {fileID: 7375289978504223285}
   portal: {fileID: 1547989945}
   respawnPos: {x: -49.51, y: 12.73, z: 2.66}
@@ -5619,6 +5694,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5014298504807187665}
+  - {fileID: 267658642}
   - {fileID: 1478108171983985057}
   - {fileID: 343922941}
   m_Father: {fileID: 0}
@@ -6103,7 +6179,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: F - Merge Into Wall
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 79a3fbe8ab0f44a4f91c43e24e2011c9, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: db723a399b7e57f4099f227378d6853c, type: 2}
   m_sharedMaterial: {fileID: 7690952819170599084, guid: 79a3fbe8ab0f44a4f91c43e24e2011c9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -6167,7 +6243,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -167.8056, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1660057539 &9223372036854775807

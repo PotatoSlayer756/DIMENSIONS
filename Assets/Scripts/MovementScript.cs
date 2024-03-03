@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 5.0f;
     public bool isOnGround, isHolding = false, isLasered = false;
     public int keyCount = 0, CameraRotation;
+    public string deathcause;
 
     public Rigidbody rb;
     public GameObject portal;
@@ -90,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (isLasered)
         {
-            PlayerRespawn(respawnPos, playerCamera);
+            PlayerRespawn(respawnPos, playerCamera, deathcause);
         }
         anim.transform.localPosition = Vector3.zero;
         anim.transform.localEulerAngles = Vector3.zero;
@@ -117,8 +118,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((other.CompareTag("Death")))
         {
-            PlayerRespawn(respawnPos, playerCamera);
-
+            deathcause = other.gameObject.name;
+            PlayerRespawn(respawnPos, playerCamera, deathcause);
         }
         if (other.CompareTag("CheckPoint"))
         {
@@ -137,11 +138,11 @@ public class PlayerMovement : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-    public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera)
+    public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)
     {
         pickUpScript.DropObject(pickUpScript.childObj);
         isLasered = false;
-        print("player respawns");
+        print("player respawns, killed by " + deathcause);
         transform.position = respawnPos;
         print("respawned at - " + respawnPos + ", with rotation - " + respawnR);
         playerCamera.transform.rotation = Quaternion.Euler(35, respawnR, 0);
