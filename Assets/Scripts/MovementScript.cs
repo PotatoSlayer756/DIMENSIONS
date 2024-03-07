@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("IsHolding", isHolding);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (isOnGround)
+            if (isOnGround && !isHolding)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;

@@ -8,6 +8,7 @@ public class FallingPlatformScript : MonoBehaviour
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
+        animator.SetBool("IsPlayerOn", false);
     }
     private void OnTriggerEnter(Collider collision)
     {
@@ -15,7 +16,7 @@ public class FallingPlatformScript : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                animator.SetTrigger("PlayerEnt");
+                animator.SetBool("IsPlayerOn", true);
             }
         }
     }
@@ -25,7 +26,7 @@ public class FallingPlatformScript : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                animator.ResetTrigger("PlayerExi");
+                animator.SetBool("IsPlayerOn", false);
             }
         }
     }
