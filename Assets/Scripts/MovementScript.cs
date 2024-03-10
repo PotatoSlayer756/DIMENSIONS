@@ -11,17 +11,18 @@ using UnityEngine.UIElements;
 public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
-    public float jumpForce = 5.0f;
-    public bool isOnGround, isHolding = false, isLasered = false;
+    public float jumpForce = 5.0f, respawnR, groundDistance;
+    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true;
     public int keyCount = 0, CameraRotation;
     public string deathcause;
 
     public Rigidbody rb;
+    public LayerMask groundMask;
     public GameObject portal;
     public Vector3 respawnPos;
-    public float respawnR;
     public CinemachineVirtualCamera playerCamera;
     public GameObject WallPlayer;
+    public Transform GroundChecker;
 
     private zonescript zone;
     private PickUpScript pickUpScript;
@@ -61,8 +62,10 @@ public class PlayerMovement : MonoBehaviour
         // Calculate the movement direction based on the input and camera's orientation
         Vector3 moveDirection = (cameraForward * moveInput + cameraRight * strafeInput).normalized;
 
-        // Move the player in the calculated direction
-        rb.MovePosition(rb.position + moveDirection * playerSpeed * Time.deltaTime);
+        if (canHeMove)
+        {
+            rb.MovePosition(rb.position + moveDirection * playerSpeed * Time.deltaTime);
+        }
 
         // Update the player's rotation to face the movement direction
         if (moveDirection != Vector3.zero)
@@ -70,6 +73,9 @@ public class PlayerMovement : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(moveDirection);
             rb.MoveRotation(newRotation);
         }
+
+        isOnGround = Physics.CheckSphere(GroundChecker.position, groundDistance, groundMask);
+        anim.SetBool("IsOnGround", isOnGround);
 
         if (moveInput != 0f || strafeInput != 0f)
         {
@@ -128,6 +134,10 @@ public class PlayerMovement : MonoBehaviour
             respawnR = zone.CheckpointR;
             print("new checkpoint set - " + respawnPos);
         }
+        if (other.CompareTag("StopMovement"))
+        {
+            canHeMove = false;
+        }
         if (other.CompareTag("Portal"))
         {
             timerScript.StopTimer();
@@ -136,6 +146,14 @@ public class PlayerMovement : MonoBehaviour
         {
             keyCount++;
             other.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("StopMovement"))
+        {
+            canHeMove = true;
         }
     }
     public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)

@@ -6,7 +6,7 @@ public class WallMoving : MonoBehaviour
 {
     public float playerSpeed = 5f, minX, maxX;
 
-    // Start is called before the first frame update
+    public GameObject leftRaycast, rightRaycast;
     void Start()
     {
     }
@@ -18,6 +18,23 @@ public class WallMoving : MonoBehaviour
         Vector3 movement = transform.right * horizontalInput * playerSpeed * Time.deltaTime;
         transform.position += movement;
 
+        if(horizontalInput > 0)
+        {
+            leftRaycast.gameObject.SetActive(false);
+            rightRaycast.gameObject.SetActive(true);
+
+        }
+        if (horizontalInput < 0)
+        {
+            leftRaycast.gameObject.SetActive(true);
+            rightRaycast.gameObject.SetActive(false);
+        }
+        if (horizontalInput == 0)
+        {
+            leftRaycast.gameObject.SetActive(false);
+            rightRaycast.gameObject.SetActive(false);
+
+        }
         // Check if player object is within range
         if (transform.position.x < minX)
         {
