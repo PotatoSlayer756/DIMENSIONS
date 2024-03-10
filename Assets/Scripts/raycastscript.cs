@@ -5,7 +5,7 @@ using static UnityEngine.UI.Image;
 
 public class raycastscript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float eee = 0f;
     void Start()
     {
         
@@ -26,7 +26,7 @@ public class raycastscript : MonoBehaviour
                     Debug.Log("The normal of the surface hit is: " + normal);
                     Debug.Log("Hit object: " + hit.collider.gameObject.name);
                 }
-                transform.parent.rotation = Quaternion.LookRotation(hit.normal, Vector3.up) * Quaternion.Euler(0, 180, 0);
+                transform.parent.rotation = Quaternion.LookRotation(hit.normal, Vector3.up) * Quaternion.Euler(0, eee, 0);
             }
         }
         Debug.DrawRay(ray.origin, ray.direction, Color.green);

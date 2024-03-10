@@ -29,6 +29,7 @@ public class SwapScript : MonoBehaviour
             if (playerInTrigger && pickup.isEmpty)
             {
                 print("swapping");
+                print(WallPlayer);
                 switch (Player.activeSelf)
                 {
                     case true:
@@ -63,7 +64,12 @@ public class SwapScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject == Player)
+        {
+            print("player in trigger");
+            playerInTrigger = true;
+        }
+        else if (other.gameObject == WallPlayer)
         {
             print("player in trigger");
             playerInTrigger = true;
@@ -71,7 +77,12 @@ public class SwapScript : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject == Player)
+        {
+            print("player exits trigger");
+            playerInTrigger = false;
+        }
+        else if (other.gameObject == WallPlayer)
         {
             print("player exits trigger");
             playerInTrigger = false;
