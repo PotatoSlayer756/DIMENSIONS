@@ -22,7 +22,7 @@ public class DialogueController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Joystick1Button1) && dialogueCanStart)
         {
             if (dialogueCanStart)
             {
@@ -34,6 +34,11 @@ public class DialogueController : MonoBehaviour
         else
         {
 
+        }
+        if (!dialogueCanStart)
+        {
+            dialogueWindow.gameObject.SetActive(false);
+            index = 0;
         }
     }
     void NextSentence()
