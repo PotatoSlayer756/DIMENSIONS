@@ -6,6 +6,8 @@ using static UnityEngine.UI.Image;
 public class raycastscript : MonoBehaviour
 {
     public float eee = 0f;
+    public float rayDistance;
+
     void Start()
     {
         
@@ -16,7 +18,7 @@ public class raycastscript : MonoBehaviour
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit, rayDistance))
         {
             if (hit.collider.gameObject.CompareTag("Wall"))
             {

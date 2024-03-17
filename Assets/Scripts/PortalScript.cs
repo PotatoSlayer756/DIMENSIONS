@@ -6,14 +6,28 @@ using UnityEngine.SceneManagement;
 public class PortalScript : MonoBehaviour
 {
     public GameObject Fade;
+    public bool isDebugOn;
     TimerScript timerScript;
     Animator fadeAnim;
     LevelFadingScript levelFadingScript;
+    public GameObject debugMenu;
 
     private void Start()
     {
+        debugMenu.SetActive(false);
         fadeAnim = Fade.GetComponent<Animator>();
         timerScript = gameObject.GetComponent<TimerScript>();
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            // Toggle the state of isDebugOn before updating the active status of debugMenu
+            isDebugOn = !isDebugOn;
+
+            // Update the active status of debugMenu based on the new state of isDebugOn
+            debugMenu.SetActive(isDebugOn);
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -23,5 +37,16 @@ public class PortalScript : MonoBehaviour
             fadeAnim.SetTrigger("FadeOut");
         }
     }
-
+    public void LoadLevel0()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene(2);
+    }
 }

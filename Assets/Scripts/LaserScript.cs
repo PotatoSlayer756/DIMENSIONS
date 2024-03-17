@@ -5,79 +5,53 @@ using UnityEngine;
 
 public class LaserScript : MonoBehaviour
 {
-    public List<GameObject> desiredList;
     public bool hasHit = false;
-    int listIndex = 0;
     private LineRenderer lr;
-    private List<GameObject> objectList;
-    public GameObject player;
+    public GameObject player, magicWallSystem;
     public Transform startingPoint;
     PlayerMovement playerMovement;
     ItemRespawnScript itemRespawnScript;
+    MagicWallScript magicWallScript;
 
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
+        magicWallScript = magicWallSystem.GetComponent<MagicWallScript>();
         lr = GetComponent<LineRenderer>();
-        Debug.Log(desiredList.Count);
+
     }
     private void Update()
     {
-        lr.SetPosition(0, startingPoint.position);
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        Ray ray = new Ray(startingPoint.transform.position, startingPoint.transform.forward);
+        RaycastHit hit = new RaycastHit();
+        if (Physics.Raycast(ray, out hit))
         {
-            if (!hasHit)
+            lr.SetPosition(0, startingPoint.transform.position);
+            lr.SetPosition(1, hit.point);
+            lr.enabled = true;
+            if (hit.collider)
             {
-                if (hit.collider)
+                Debug.Log(hit.transform.gameObject);
+            }
+            if (hit.transform.CompareTag("Player"))
+            {
+                Debug.Log("laser hit player");
+                playerMovement.isLasered = true;
+            }
+            if (hit.transform.CompareTag("Pickable"))
+            {
+                Debug.Log("laser hit cube");
+                hit.transform.SendMessage("HitByRay");
+            }
+            if (hit.transform.CompareTag("MagicWall"))
+            {
+                if (!hasHit)
                 {
-                    lr.SetPosition(1, hit.point);
-                    hasHit = true;
-                }
-                if (hit.transform.CompareTag("Player"))
-                {
-                    playerMovement.isLasered = true;
-                    hasHit = true;
-                }
-                if (hit.transform.CompareTag("Pickable"))
-                {
-                    hit.transform.SendMessage("HitByRay");
-                    hasHit = true;
-                }
-                if (hit.transform.CompareTag("MagicWall"))
-                {
-                    if(listIndex < desiredList.Count)
-                    {
-                        Debug.Log("hitted magic wall");
-                        if (hit.transform.gameObject == desiredList[listIndex])
-                        {
-                            Debug.Log("hitted needed magic wall");
-                            listIndex++;
-                            hasHit = true;
-                        }
-                        else
-                        {
-                            Debug.Log("hitted useless magic wall");
-                            listIndex = 0;
-                            hasHit = true;
-                        }
-                    }
-                }
-                if (listIndex == desiredList.Count)
-                {
-                    foreach (GameObject go in desiredList)
-                    {
-                        Animator animator = go.GetComponent<Animator>();
-                        animator.SetTrigger("WallHasBeenActivated");
-                        hasHit = true;
-                    }  
+                    Animator anim = hit.transform.transform.GetComponent<Animator>();
+                    anim.SetTrigger("WallHasBeenActivated");
                 }
             }
         }
-        else
-        {
-            hasHit = false;
-            lr.SetPosition(1, transform.forward * 5000);
-        }
+        Debug.DrawRay(ray.origin, ray.direction, Color.green);
     }
 }

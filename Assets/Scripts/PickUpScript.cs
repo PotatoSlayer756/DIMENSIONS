@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpScript : MonoBehaviour
 {
-    public bool isEmpty = true, canPickUp, canRotate = false;
+    public bool isEmpty, canPickUp, canRotate = false;
     public GameObject GrabSlot, heldObj, childObj;
     private Rigidbody rb;
 
@@ -17,6 +17,7 @@ public class PickUpScript : MonoBehaviour
     {
         Debug.Log("are his hands empty " + isEmpty);
         playerMovement = GetComponentInParent<PlayerMovement>();
+        isEmpty = true;
     }
 
     // Update is called once per frame
@@ -38,11 +39,9 @@ public class PickUpScript : MonoBehaviour
                 DropObject(childObj);
                 isEmpty = true;
             }
-
-
             if (canRotate)
             {
-                print("Can Rotate");
+                print("Rotating...");
                 RotateLaserTurett(heldObj);
             }
 
@@ -58,7 +57,6 @@ public class PickUpScript : MonoBehaviour
             heldObj.transform.SetParent(GrabSlot.transform);
             rb.isKinematic = true;
             childObj = heldObj;
-            print(childObj);
             Physics.IgnoreLayerCollision(7, 8);
             print("picked up");
         }

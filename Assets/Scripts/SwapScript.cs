@@ -36,12 +36,12 @@ public class SwapScript : MonoBehaviour
                         WallPlayer.transform.position = WallPlayerSlot.gameObject.transform.position;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
                         WallPlayer.SetActive(true);
-                        print("that nigga active? " + WallPlayer.activeSelf);
+                        print("is wallplayer active? " + WallPlayer.activeSelf);
                         Player.SetActive(false);
                         mainCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
                         print("player check");
-                        print("that nigga still active? " + WallPlayer.activeSelf);
+                        print("that wallplayer still active? " + WallPlayer.activeSelf);
                         break;
 
                     case false:
