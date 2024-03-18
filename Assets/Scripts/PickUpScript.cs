@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PickUpScript : MonoBehaviour
 {
@@ -79,7 +80,8 @@ public class PickUpScript : MonoBehaviour
     {
         if (heldObj != null)
         {
-            heldObj.transform.transform.Rotate(0, 90, 0);
+            LaserScript laserScript = heldObj.GetComponent<LaserScript>();
+            laserScript.Rotate();
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 public class LaserScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class LaserScript : MonoBehaviour
     private LineRenderer lr;
     public GameObject player, magicWallSystem;
     public Transform startingPoint;
+    int rotateCount = 1;
     PlayerMovement playerMovement;
     ItemRespawnScript itemRespawnScript;
     MagicWallScript magicWallScript;
@@ -31,7 +33,6 @@ public class LaserScript : MonoBehaviour
             lr.enabled = true;
             if (hit.collider)
             {
-                Debug.Log(hit.transform.gameObject);
             }
             if (hit.transform.CompareTag("Player"))
             {
@@ -53,5 +54,19 @@ public class LaserScript : MonoBehaviour
             }
         }
         Debug.DrawRay(ray.origin, ray.direction, Color.green);
+    }
+    public void Rotate()
+    {
+        transform.DORotate(new Vector3(0, transform.eulerAngles.y + 90, 0), 1f, RotateMode.Fast);
+        if(rotateCount < 4)
+        {
+            rotateCount++;
+
+        }
+        if(rotateCount == 4)
+        {
+            rotateCount = 0;
+        }
+        Debug.Log(rotateCount);
     }
 }
