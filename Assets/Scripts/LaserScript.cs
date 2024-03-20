@@ -61,7 +61,6 @@ public class LaserScript : MonoBehaviour
         if(rotateCount < 4)
         {
             rotateCount++;
-
         }
         if(rotateCount == 4)
         {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ActivatingObjectScript : MonoBehaviour
 {
-    
     Animator anim;
     private void Awake()
     {

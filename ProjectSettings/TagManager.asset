@@ -15,6 +15,7 @@ TagManager:
   - LaserGun
   - MagicWall
   - StopMovement
+  - Pressable
   layers:
   - Default
   - TransparentFX

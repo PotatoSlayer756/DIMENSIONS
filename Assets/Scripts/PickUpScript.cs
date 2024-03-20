@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PickUpScript : MonoBehaviour
 {
-    public bool isEmpty, canPickUp, canRotate = false;
+    public bool isEmpty, canPickUp, canRotate = false, canPress = false;
     public GameObject GrabSlot, heldObj, childObj;
     private Rigidbody rb;
 
@@ -45,6 +45,11 @@ public class PickUpScript : MonoBehaviour
                 print("Rotating...");
                 RotateLaserTurett(heldObj);
             }
+            if(canPress)
+            {
+                print("button pressing...");
+                PressTheButton(heldObj);
+            }
 
         }
     }
@@ -81,7 +86,17 @@ public class PickUpScript : MonoBehaviour
         if (heldObj != null)
         {
             LaserScript laserScript = heldObj.GetComponent<LaserScript>();
+            DropObject(childObj);
             laserScript.Rotate();
+        }
+    }
+    void PressTheButton(GameObject heldObj)
+    {
+        if (heldObj != null)
+        {
+            ButtonScript buttonScript = heldObj.GetComponent<ButtonScript>();
+            DropObject(childObj);
+            buttonScript.Activated();
         }
     }
 
@@ -97,6 +112,12 @@ public class PickUpScript : MonoBehaviour
             canRotate = true;
             heldObj = other.gameObject;
         }
+        if (other.CompareTag("Pressable"))
+        {
+            print("can press button");
+            canPress = true;
+            heldObj = other.gameObject;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -108,6 +129,11 @@ public class PickUpScript : MonoBehaviour
         if (other.CompareTag("LaserGun"))
         {
             canRotate = false;
+            heldObj = null;
+        }
+        if (other.CompareTag("Pressable"))
+        {
+            canPress = false;
             heldObj = null;
         }
     }
