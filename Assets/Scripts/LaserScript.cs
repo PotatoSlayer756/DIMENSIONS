@@ -8,7 +8,7 @@ public class LaserScript : MonoBehaviour
 {
     public bool hasHit = false;
     private LineRenderer lr;
-    public GameObject player, magicWallSystem;
+    public GameObject player;
     public Transform startingPoint;
     int rotateCount = 1;
     PlayerMovement playerMovement;
@@ -18,7 +18,6 @@ public class LaserScript : MonoBehaviour
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
-        magicWallScript = magicWallSystem.GetComponent<MagicWallScript>();
         lr = GetComponent<LineRenderer>();
 
     }

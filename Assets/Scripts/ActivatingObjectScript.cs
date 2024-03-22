@@ -11,10 +11,10 @@ public class ActivatingObjectScript : MonoBehaviour
     }
     public void Activated()
     {
-        anim.SetTrigger("PlayerEnt");
+        anim.SetBool("PlayerEnt", true);
     }
     public void Disactivated()
     {
-        anim.SetTrigger("PlayerExi");
+        anim.SetBool("PlayerEnt", false);
     }
 }

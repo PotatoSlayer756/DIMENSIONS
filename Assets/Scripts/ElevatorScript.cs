@@ -31,6 +31,14 @@ public class ElevatorScript : MonoBehaviour
             }
         }  
     }
+    public void Activated()
+    {
+        hasPlayerTouched = true;
+    }
+    public void Deactivated()
+    {
+        hasPlayerTouched = false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -49,9 +57,5 @@ public class ElevatorScript : MonoBehaviour
             print("exited elevator");
             collision.transform.parent = null; // Remove the player from being a child of the elevator
         }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        
     }
 }

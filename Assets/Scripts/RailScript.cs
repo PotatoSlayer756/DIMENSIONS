@@ -9,6 +9,7 @@ public class RailScript : MonoBehaviour
     List<GameObject> children = new List<GameObject>();
     public GameObject[] points;
     public GameObject moveable;
+    Rigidbody rb;
     public int pointCount, startingPoint;
     public bool goesForward = true;
 
@@ -16,6 +17,8 @@ public class RailScript : MonoBehaviour
     {
         FindAllChildren();
         moveable.transform.parent = this.gameObject.transform;
+        rb = moveable.GetComponent<Rigidbody>();    
+        rb.isKinematic = true;
         moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 0.1f);
     }
 
@@ -27,7 +30,6 @@ public class RailScript : MonoBehaviour
             if (child != null && child.gameObject != null && child.childCount == 1)
             {
                 children.Add(child.gameObject);
-                
             }
         }
         pointCount = children.Count;
