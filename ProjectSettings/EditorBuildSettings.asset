@@ -15,12 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level2.unity
     guid: d4848bad37b542040a4cb6388a83114b
   - enabled: 1
-    path: Assets/Scenes/Demos/JokeLevel.unity
-    guid: 6a3b89ecf6ddd0440a19d77291db62fc
-  - enabled: 0
     path: Assets/Scenes/Levels/Level3.unity
     guid: bf116219bc88c2b42ae5cebc3e52422d
   - enabled: 0
     path: Assets/Scenes/Levels/Level4.unity
     guid: 7d099fac61f8aa6408ca6d94b9cc07bc
+  - enabled: 1
+    path: Assets/Scenes/Demos/JokeLevel.unity
+    guid: 6a3b89ecf6ddd0440a19d77291db62fc
   m_configObjects: {}
