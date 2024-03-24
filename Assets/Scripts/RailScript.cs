@@ -11,6 +11,7 @@ public class RailScript : MonoBehaviour
     public GameObject moveable;
     Rigidbody rb;
     public int pointCount, startingPoint;
+    public float speed;
     public bool goesForward = true;
 
     private void Awake()

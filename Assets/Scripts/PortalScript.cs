@@ -10,11 +10,11 @@ public class PortalScript : MonoBehaviour
     TimerScript timerScript;
     Animator fadeAnim;
     LevelFadingScript levelFadingScript;
-    public GameObject debugMenu;
+    //public GameObject debugMenu;
 
     private void Start()
     {
-        debugMenu.SetActive(false);
+        //debugMenu.SetActive(false);
         fadeAnim = Fade.GetComponent<Animator>();
         timerScript = gameObject.GetComponent<TimerScript>();
     }
@@ -23,10 +23,10 @@ public class PortalScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             // Toggle the state of isDebugOn before updating the active status of debugMenu
-            isDebugOn = !isDebugOn;
+            //isDebugOn = !isDebugOn;
 
             // Update the active status of debugMenu based on the new state of isDebugOn
-            debugMenu.SetActive(isDebugOn);
+            //debugMenu.SetActive(isDebugOn);
         }
     }
     private void OnTriggerEnter(Collider other)
