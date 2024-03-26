@@ -45,10 +45,10 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
-  - TransparentDepthPrepass
+  - RayTracingPrepass
   - TransparentDepthPostpass
   - TransparentBackface
-  - RayTracingPrepass
+  - TransparentDepthPrepass
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -171,8 +171,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FogDensity: 0.109
-    - FogNoise: 0.2
+    - FogDensity: 0.35
+    - FogNoise: 0
     - FogSpeed: 0.2
     - _AORemapMax: 1
     - _AORemapMin: 0

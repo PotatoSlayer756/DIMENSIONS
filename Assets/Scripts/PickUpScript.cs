@@ -5,10 +5,10 @@ using DG.Tweening;
 
 public class PickUpScript : MonoBehaviour
 {
-    public bool isEmpty, canPickUp, canRotate = false, canPress = false;
+    public bool isEmpty, canPickUp, canRotate = false, canPress = false, isConnected;
     public GameObject GrabSlot, heldObj, childObj;
     private Rigidbody rb;
-
+    ItemRespawnScript itemReScript;
     private float Resulting_Value_from_Input;
     private Quaternion Quaternion_Rotate_From;
     private Quaternion Quaternion_Rotate_To;
@@ -59,6 +59,8 @@ public class PickUpScript : MonoBehaviour
         {
             playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
+            itemReScript = heldObj.GetComponent<ItemRespawnScript>();
+            itemReScript.isConnected = false;
             heldObj.transform.position = GrabSlot.transform.position;
             heldObj.transform.SetParent(GrabSlot.transform);
             rb.isKinematic = true;

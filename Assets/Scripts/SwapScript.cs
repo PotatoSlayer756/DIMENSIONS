@@ -35,6 +35,7 @@ public class SwapScript : MonoBehaviour
                     case true:
                         WallPlayer.transform.position = WallPlayerSlot.gameObject.transform.position;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
+                        Debug.Log(wp.minX + " , " + wp.maxX);
                         WallPlayer.SetActive(true);
                         print("is wallplayer active? " + WallPlayer.activeSelf);
                         Player.SetActive(false);

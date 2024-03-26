@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemRespawnScript : MonoBehaviour
 {
     public Vector3 defaultPosition;
+    public bool isConnected = false;
 
 
     void OnTriggerEnter(Collider other)

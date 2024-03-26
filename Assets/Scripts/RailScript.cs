@@ -10,9 +10,10 @@ public class RailScript : MonoBehaviour
     public GameObject[] points;
     public GameObject moveable;
     Rigidbody rb;
+    ItemRespawnScript itemReScript;
     public int pointCount, startingPoint;
     public float speed;
-    public bool goesForward = true;
+    public bool goesForward = true, isConnected = true;
 
     private void Awake()
     {
@@ -21,6 +22,11 @@ public class RailScript : MonoBehaviour
         rb = moveable.GetComponent<Rigidbody>();    
         rb.isKinematic = true;
         moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 0.1f);
+        if(moveable.GetComponent<ItemRespawnScript>() != null )
+        {
+            itemReScript = moveable.GetComponent<ItemRespawnScript>();   
+        }
+        itemReScript.isConnected = true;
     }
 
     private void FindAllChildren()
@@ -45,33 +51,39 @@ public class RailScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        isConnected = itemReScript.isConnected;
+        /*if (Input.GetKeyDown(KeyCode.Z))
         {
-            Debug.Log("point " + startingPoint);
-            MoveObject();
-        }
+            
+            {
+                Debug.Log("point " + startingPoint);
+                MoveObject();
+            }
+        }*/
     }
     public void MoveObject()
     {
-        
-        if(startingPoint == points.Length - 1)
+        if (isConnected)
         {
-            goesForward = false;
+            if (startingPoint == points.Length - 1)
+            {
+                goesForward = false;
+            }
+            else if (startingPoint == 0)
+            {
+                goesForward = true;
+            }
+            if (goesForward)
+            {
+                Debug.Log("rail goes forward");
+                startingPoint++;
+            }
+            else if (!goesForward)
+            {
+                Debug.Log("rail goes back");
+                startingPoint--;
+            }
+            moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 1f);
         }
-        else if(startingPoint == 0)
-        {
-            goesForward = true;
-        }
-        if (goesForward)
-        {
-            Debug.Log("rail goes forward");
-            startingPoint++;
-        }
-        else if(!goesForward)
-        {
-            Debug.Log("rail goes back");
-            startingPoint--;
-        }
-        moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 1f);
     }
 }
