@@ -24,9 +24,9 @@ public class RailScript : MonoBehaviour
         moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 0.1f);
         if(moveable.GetComponent<ItemRespawnScript>() != null )
         {
-            itemReScript = moveable.GetComponent<ItemRespawnScript>();   
+            itemReScript = moveable.GetComponent<ItemRespawnScript>();
+            itemReScript.isConnected = true;
         }
-        itemReScript.isConnected = true;
     }
 
     private void FindAllChildren()
@@ -51,7 +51,10 @@ public class RailScript : MonoBehaviour
     }
     private void Update()
     {
-        isConnected = itemReScript.isConnected;
+        if (moveable.GetComponent<ItemRespawnScript>() != null)
+        {
+            isConnected = itemReScript.isConnected;
+        }
         /*if (Input.GetKeyDown(KeyCode.Z))
         {
             
