@@ -57,16 +57,20 @@ public class PickUpScript : MonoBehaviour
     {
         if(heldObj != null)
         {
+            print("picking up " + heldObj + "...");
             playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
-            itemReScript = heldObj.GetComponent<ItemRespawnScript>();
-            itemReScript.isConnected = false;
+            if (heldObj.GetComponent<ItemRespawnScript>() != null)
+            {
+                itemReScript = heldObj.GetComponent<ItemRespawnScript>();
+                itemReScript.isConnected = false;
+            }
             heldObj.transform.position = GrabSlot.transform.position;
             heldObj.transform.SetParent(GrabSlot.transform);
             rb.isKinematic = true;
             childObj = heldObj;
             Physics.IgnoreLayerCollision(7, 8);
-            print("picked up");
+            print("picked up " + childObj);
         }
     }
     public void DropObject(GameObject heldObj)
