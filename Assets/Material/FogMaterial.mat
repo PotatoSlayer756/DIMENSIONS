@@ -172,8 +172,8 @@ Material:
     m_Ints: []
     m_Floats:
     - FogDensity: 0.35
-    - FogNoise: 0
-    - FogSpeed: 0.2
+    - FogNoise: 3
+    - FogSpeed: 0.31
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -328,7 +328,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 0
     m_Colors:
-    - FogColor: {r: 1, g: 0.9545212, b: 0.7028302, a: 1}
+    - FogColor: {r: 0.6226415, g: 0.49220306, b: 0.47872907, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
