@@ -12,7 +12,7 @@ public class RailScript : MonoBehaviour
     Rigidbody rb;
     ItemRespawnScript itemReScript;
     public int pointCount, startingPoint;
-    public float speed;
+    public float speed, upper;
     public bool goesForward = true, isConnected = true;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class RailScript : MonoBehaviour
         moveable.transform.parent = this.gameObject.transform;
         rb = moveable.GetComponent<Rigidbody>();    
         rb.isKinematic = true;
-        moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 0.1f);
+        moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y + upper, points[startingPoint].transform.position.z), 0.1f);
         if(moveable.GetComponent<ItemRespawnScript>() != null )
         {
             itemReScript = moveable.GetComponent<ItemRespawnScript>();
@@ -86,7 +86,7 @@ public class RailScript : MonoBehaviour
                 Debug.Log("rail goes back");
                 startingPoint--;
             }
-            moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y, points[startingPoint].transform.position.z), 1f);
+            moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y + upper, points[startingPoint].transform.position.z), 1f);
         }
     }
 }

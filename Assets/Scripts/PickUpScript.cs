@@ -16,7 +16,7 @@ public class PickUpScript : MonoBehaviour
     PlayerMovement playerMovement;
     private void Start()
     {
-        Debug.Log("are his hands empty " + isEmpty);
+        //Debug.Log("are his hands empty " + isEmpty);
         playerMovement = GetComponentInParent<PlayerMovement>();
         isEmpty = true;
     }

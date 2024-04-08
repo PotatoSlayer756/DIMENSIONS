@@ -8,6 +8,7 @@ public class ElevatorScript : MonoBehaviour
     public float speed = 2.0f;
     public GameObject gear1, gear2;
     Animator g1anim, g2anim;
+    [HideInInspector]
     public Rigidbody rb;
     private bool movingTowardsA = true, hasPlayerTouched = false;
 
