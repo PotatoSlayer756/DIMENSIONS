@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 
 public class WallMoving : MonoBehaviour
 {
     public float playerSpeed = 5f, minX, maxX;
 
     public GameObject leftRaycast, rightRaycast;
+    public DecalProjector projector;
+    Transform projectorparent;
+    Vector3 projectorScale;
     void Start()
     {
+        projectorparent = projector.transform.parent;
+        projector.transform.parent = null;
+        projectorScale = transform.localScale;
+        Debug.Log(projectorScale);
+        projector.transform.parent = projectorparent;
     }
 
     // Update is called once per frame
@@ -22,12 +31,13 @@ public class WallMoving : MonoBehaviour
         {
             leftRaycast.gameObject.SetActive(false);
             rightRaycast.gameObject.SetActive(true);
-
+            projector.transform.localScale = new Vector3(projectorScale.x, projectorScale.y / (float)2.5, projectorScale.z);
         }
         if (horizontalInput < 0)
         {
             leftRaycast.gameObject.SetActive(true);
             rightRaycast.gameObject.SetActive(false);
+            projector.transform.localScale = new Vector3(-projectorScale.x, projectorScale.y / (float)2.5, projectorScale.z);
         }
         if (horizontalInput == 0)
         {

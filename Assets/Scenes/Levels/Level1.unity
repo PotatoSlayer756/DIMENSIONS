@@ -2817,7 +2817,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -7272,6 +7272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3909848621872502727}
   - component: {fileID: 6001514831179437963}
+  - component: {fileID: 6001514831179437964}
   m_Layer: 0
   m_Name: Decal Projector
   m_TagString: Untagged
@@ -7476,7 +7477,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.0000004768371, z: -0, w: 1}
   m_LocalPosition: {x: -0.20000172, y: 0, z: 1.9939997}
-  m_LocalScale: {x: 0.51387, y: 0.14194632, z: 0.51387}
+  m_LocalScale: {x: 1, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4448263276003148870}
@@ -7535,7 +7536,7 @@ Transform:
   m_GameObject: {fileID: 7838697625025222908}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0000004768371, z: -0, w: 1}
-  m_LocalPosition: {x: 3.12, y: 2.476, z: 4.1}
+  m_LocalPosition: {x: 7.56, y: 2.476, z: 4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7562,7 +7563,7 @@ Transform:
   m_GameObject: {fileID: 7665663474047120132}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.055035, y: 23.24926, z: -8.450633}
+  m_LocalPosition: {x: -2.5950263, y: 23.24926, z: -8.450633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7929,7 +7930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: c134d58de6a09c040a07a0dde351c226, type: 2}
   m_DrawDistance: 1000
-  m_FadeScale: 0.9
+  m_FadeScale: 1
   m_StartAngleFade: 180
   m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
@@ -7938,9 +7939,30 @@ MonoBehaviour:
   m_DecalLayerMask: 8
   m_ScaleMode: 1
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 3.67, y: 13.15, z: 3.8}
+  m_Size: {x: 3.67, y: 17.21, z: 5.51}
   m_FadeFactor: 1
   m_Version: 2
+--- !u!95 &6001514831179437964
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3486600599918627393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09985ff162d837f41905df7f981ce711, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &6103302990576524217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7958,6 +7980,7 @@ MonoBehaviour:
   maxX: 0
   leftRaycast: {fileID: 2114350732}
   rightRaycast: {fileID: 1535314112}
+  projector: {fileID: 6001514831179437963}
 --- !u!1818360609 &6378145716623183555
 RotationConstraint:
   m_ObjectHideFlags: 0
@@ -8011,7 +8034,7 @@ Transform:
   m_GameObject: {fileID: 3074892644801786234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -49.07, y: 14.92, z: 2.808}
+  m_LocalPosition: {x: -2.61, y: 14.92, z: 2.808}
   m_LocalScale: {x: 1.5392, y: 1.9049706, z: 1.6861936}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8095,7 +8118,7 @@ Transform:
   m_GameObject: {fileID: 8803668856899318794}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.055035, y: 23.24926, z: -8.450633}
+  m_LocalPosition: {x: -2.5950263, y: 23.24926, z: -8.450633}
   m_LocalScale: {x: 1.0000252, y: 0.9649096, z: 1.0396218}
   m_ConstrainProportionsScale: 0
   m_Children:

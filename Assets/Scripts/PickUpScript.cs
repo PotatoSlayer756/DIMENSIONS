@@ -57,7 +57,6 @@ public class PickUpScript : MonoBehaviour
     {
         if(heldObj != null)
         {
-            print("picking up " + heldObj + "...");
             playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
             if (heldObj.GetComponent<ItemRespawnScript>() != null)
@@ -82,8 +81,8 @@ public class PickUpScript : MonoBehaviour
             rb.isKinematic = false;
             childObj.transform.parent = null;
             Physics.IgnoreLayerCollision(7, 8, false);
+            print("putted down " + childObj);
             childObj = null;
-            print("putted down");
         }
     }
     
