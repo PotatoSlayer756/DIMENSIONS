@@ -8,14 +8,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
-  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 25b1388574d519540a1a672c74f030e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _SUNDISK_HIGH_QUALITY
+  - ENABLE_BACKGROUND_NOISE
+  - ENABLE_MOON
   m_InvalidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
+  - _SUNDISK_SIMPLE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -76,6 +78,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MoonTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -144,12 +150,16 @@ Material:
     - _AlphaRemapMin: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
-    - _AtmosphereThickness: 0.77
+    - _AtmosphereThickness: 0.47
     - _BlendMode: 0
+    - _Brightness: 2.89
+    - _BrightnessMod: 3
     - _CoatMask: 0
     - _CullMode: 2
     - _CullModeForward: 2
     - _Cutoff: 0.5
+    - _Density: 2.28
+    - _DensityMod: 1.95
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
@@ -167,9 +177,11 @@ Material:
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
     - _EmissiveIntensityUnit: 0
+    - _EnableBackgroundNoise: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
+    - _EnableMoon: 1
     - _EnergyConservingSpecularColor: 1
     - _Exposure: 0.65
     - _HeightAmplitude: 0.02
@@ -185,11 +197,14 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _Layers: 5
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
+    - _MoonSize: 0.095
+    - _NoiseDensity: 6.2
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _ObjectSpaceUVMapping: 0
@@ -204,6 +219,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
+    - _Seed: 67.76
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -220,9 +236,9 @@ Material:
     - _StencilWriteMaskGBuffer: 15
     - _StencilWriteMaskMV: 41
     - _SubsurfaceMask: 1
-    - _SunDisk: 2
+    - _SunDisk: 1
     - _SunSize: 0.318
-    - _SunSizeConvergence: 5.04
+    - _SunSizeConvergence: 5
     - _SupportDecals: 1
     - _SurfaceType: 0
     - _TexWorldScale: 1
@@ -258,8 +274,16 @@ Material:
     - _GroundColor: {r: 0.3490566, g: 0.12913212, b: 0.04116233, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _MoonBloomParams: {r: 10, g: -1, b: 0.3, a: 5.3}
+    - _MoonTint: {r: 1, g: 1, b: 1, a: 1}
+    - _NoiseMaskParams: {r: 0.33, g: 6, b: 0.628, a: 2.11}
+    - _NoiseMaskParams2: {r: 0.07, g: -0.001, b: 0.51, a: 2.5}
+    - _NoiseParams: {r: 0.75, g: 6, b: 0.795, a: 2.08}
+    - _SkyColor: {r: 0, g: 0.22824103, b: 0.4716981, a: 1}
+    - _SkyFogColor: {r: 0.6415094, g: 0.3347335, b: 0, a: 1}
     - _SkyTint: {r: 0.44861555, g: 0.14929691, b: 0.5754717, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _StarSizeRange: {r: 0.6106952, g: 0.91069525, b: 0, a: 0}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
