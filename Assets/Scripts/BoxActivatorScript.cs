@@ -20,6 +20,7 @@ public class BoxActivatorScript : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collision");
         if (collision.gameObject == neededObject)
         {
             Debug.Log("boxpad activated");

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4362207799376247990}
   - component: {fileID: 3908699483097257741}
-  m_Layer: 0
+  - component: {fileID: 8929550201130206908}
+  m_Layer: 8
   m_Name: Decal Projector
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,6 +59,27 @@ MonoBehaviour:
   m_Size: {x: 3.67, y: 13.15, z: 20.28}
   m_FadeFactor: 1
   m_Version: 2
+--- !u!95 &8929550201130206908
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208081436382677162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f49854da54f93c459ec02a4e0609281, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1070892096887908369
 GameObject:
   m_ObjectHideFlags: 0

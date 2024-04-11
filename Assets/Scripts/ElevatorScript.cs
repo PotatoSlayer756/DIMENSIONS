@@ -42,6 +42,7 @@ public class ElevatorScript : MonoBehaviour
     }
     public void Activated()
     {
+        Debug.Log("elevator activated");
         hasPlayerTouched = true;
         g1anim.SetBool("PlayerEnt", true);
         g2anim.SetBool("PlayerEnt", true);

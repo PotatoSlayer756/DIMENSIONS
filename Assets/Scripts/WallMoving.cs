@@ -9,6 +9,7 @@ public class WallMoving : MonoBehaviour
 
     public GameObject leftRaycast, rightRaycast;
     public DecalProjector projector;
+    Animator projectoranim;
     Transform projectorparent;
     Vector3 projectorScale;
     void Start()
@@ -17,6 +18,7 @@ public class WallMoving : MonoBehaviour
         projector.transform.parent = null;
         projectorScale = transform.localScale;
         Debug.Log(projectorScale);
+        projectoranim = projector.GetComponent<Animator>();
         projector.transform.parent = projectorparent;
     }
 
@@ -29,12 +31,14 @@ public class WallMoving : MonoBehaviour
 
         if(horizontalInput > 0)
         {
+            projectoranim.SetBool("isWallMoving", true);
             leftRaycast.gameObject.SetActive(false);
             rightRaycast.gameObject.SetActive(true);
             projector.transform.localScale = new Vector3(projectorScale.x, projectorScale.y / (float)2.5, projectorScale.z);
         }
         if (horizontalInput < 0)
         {
+            projectoranim.SetBool("isWallMoving", true);
             leftRaycast.gameObject.SetActive(true);
             rightRaycast.gameObject.SetActive(false);
             projector.transform.localScale = new Vector3(-projectorScale.x, projectorScale.y / (float)2.5, projectorScale.z);
@@ -43,7 +47,7 @@ public class WallMoving : MonoBehaviour
         {
             leftRaycast.gameObject.SetActive(false);
             rightRaycast.gameObject.SetActive(false);
-
+            projectoranim.SetBool("isWallMoving", false);
         }
         // Check if player object is within range
         if (transform.position.x < minX)

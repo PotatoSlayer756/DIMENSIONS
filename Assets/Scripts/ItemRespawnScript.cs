@@ -26,4 +26,9 @@ public class ItemRespawnScript : MonoBehaviour
         gameObject.transform.parent = null;
         transform.position = defaultPosition;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision cube");
+    }
 }

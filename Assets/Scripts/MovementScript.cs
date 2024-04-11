@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 5f;
     public float jumpForce = 5.0f, respawnR, groundDistance;
-    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true;
+    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false;
     public int keyCount = 0, CameraRotation;
     public string deathcause;
 
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     public CinemachineVirtualCamera playerCamera;
     public GameObject WallPlayer;
     public Transform GroundChecker;
+    public ParticleSystem dust;
 
     private zonescript zone;
     private PickUpScript pickUpScript;
@@ -80,10 +81,21 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0f || strafeInput != 0f)
         {
             anim.SetFloat("Speed", 2);
+            if (isOnGround)
+            {
+                DustPlays();
+            }
+            else if (!isOnGround)
+            {
+                dust.Stop();
+                isDustPlaying = false;
+            }
         }
         else
         {
             anim.SetFloat("Speed", 0);
+            dust.Stop();
+            isDustPlaying = false;
         }
         anim.SetBool("IsHolding", isHolding);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
@@ -167,4 +179,12 @@ public class PlayerMovement : MonoBehaviour
         WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0); //баг 003
     }
 
+    void DustPlays()
+    {
+        if(!isDustPlaying)
+        {
+            dust.Play();
+            isDustPlaying = true;
+        }
+    }
 }
