@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class LaserScript : MonoBehaviour
 {
-    public bool hasHit = false;
+    public bool hasHit = false, isRotating;
     private LineRenderer lr;
     public GameObject player;
     public Transform startingPoint;
@@ -56,8 +56,13 @@ public class LaserScript : MonoBehaviour
     }
     public void Rotate()
     {
-        transform.DORotate(new Vector3(0, transform.eulerAngles.y + 90, 0), 1f, RotateMode.Fast);
-        if(rotateCount < 4)
+        if (!isRotating)
+        {
+            isRotating = true;
+            transform.DORotate(new Vector3(0, transform.eulerAngles.y + 90, 0), 1f, RotateMode.Fast)
+                .OnComplete(() => isRotating = false);
+        }
+        if (rotateCount < 4)
         {
             rotateCount++;
         }
@@ -65,6 +70,6 @@ public class LaserScript : MonoBehaviour
         {
             rotateCount = 0;
         }
-        Debug.Log(rotateCount);
+        ;
     }
 }
