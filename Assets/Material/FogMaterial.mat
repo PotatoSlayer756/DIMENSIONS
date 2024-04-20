@@ -171,7 +171,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - FogDensity: 0.263
+    - FogDensity: 0.64
     - FogNoise: 0
     - FogSpeed: 0.31
     - _AORemapMax: 1

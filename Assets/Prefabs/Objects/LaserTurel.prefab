@@ -54,7 +54,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7910145458350714734}
   m_Enabled: 0
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasHit: 0
+  isRotating: 0
   player: {fileID: 0}
   startingPoint: {fileID: 3444627165014727445}
 --- !u!120 &7438013106307677638
@@ -326,9 +327,17 @@ PrefabInstance:
       value: LaserTurel
       objectReference: {fileID: 0}
     - target: {fileID: 6317578925029434746, guid: 44d77387cabc6f44caf93bfba9dffd53, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: 44d77387cabc6f44caf93bfba9dffd53, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 51cd14571d4639645984ce52db85d830, type: 2}
+      objectReference: {fileID: 2100000, guid: 27786f215a7be534f98a6b39cbeca7be, type: 2}
+    - target: {fileID: 8100320773420232829, guid: 44d77387cabc6f44caf93bfba9dffd53, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -8700617353114198275, guid: 44d77387cabc6f44caf93bfba9dffd53, type: 3}

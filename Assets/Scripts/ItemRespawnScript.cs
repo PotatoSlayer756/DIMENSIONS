@@ -29,6 +29,11 @@ public class ItemRespawnScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collision cube");
+        Debug.Log(this.gameObject + " collisioning with: " + collision.gameObject);
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log(this.gameObject + " exiting collision with: " + collision.gameObject);
     }
 }

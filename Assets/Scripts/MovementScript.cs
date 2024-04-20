@@ -117,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
 
     /*private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject);
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
