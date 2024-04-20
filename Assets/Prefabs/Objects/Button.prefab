@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5075885898380801125}
   - component: {fileID: 7461221279250926540}
   - component: {fileID: 3148851329369500502}
+  - component: {fileID: 9077630912763449907}
+  - component: {fileID: 8317206139113117768}
   m_Layer: 0
   m_Name: Button
   m_TagString: Pressable
@@ -134,6 +136,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9077630912763449907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522262676903923636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a34dce33c4213c4393266fbcd799d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: f18662ec92943da4db9af2efb3cc2003, type: 2}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  mask: {fileID: 0}
+  fresnelScale: 2
+  fresnelPower: 2
+  alphaThreshold: 0.5
+--- !u!114 &8317206139113117768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522262676903923636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8174fe1f8cb1624ba9b8eb8dd9ab226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabslot: {fileID: 0}
+  outlineColor: {r: 1, g: 0.9254902, b: 0, a: 0.87058824}
 --- !u!1 &8254118493529749695
 GameObject:
   m_ObjectHideFlags: 0

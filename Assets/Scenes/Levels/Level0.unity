@@ -460,6 +460,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 4316616779202597119, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -536,6 +544,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5499,6 +5515,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 4316616779202597119, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -5706,6 +5730,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalScale.x
@@ -6163,6 +6195,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 92.25036
@@ -6234,6 +6274,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 4316616779202597119, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Mass
@@ -11352,6 +11400,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 71.1
@@ -12234,6 +12290,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 4316616779202597119, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Mass
       value: 10
@@ -12417,6 +12481,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 63.902363
@@ -12531,13 +12603,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.013664
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.18
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13689,6 +13765,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 111.6
@@ -13893,6 +13977,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 105.57
@@ -13980,6 +14072,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15065,6 +15165,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 39.899017
@@ -15130,6 +15238,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 4316616779202597119, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Mass
@@ -15262,6 +15378,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15557,6 +15681,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 52
@@ -15702,6 +15834,14 @@ PrefabInstance:
     - target: {fileID: 1314844011270916156, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_Name
       value: PickableStone (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
       objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16173,6 +16313,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickableStone (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: grabslot
+      value: 
+      objectReference: {fileID: 2827916736877493038}
+    - target: {fileID: 3729165803234169788, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
+      propertyPath: outlineColor.a
+      value: 0.87058824
+      objectReference: {fileID: 0}
     - target: {fileID: 5083228881522890704, guid: 4beb05c95edb6f14c8d01110d6ca83dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 80.02
@@ -16425,6 +16573,7 @@ GameObject:
   - component: {fileID: 5488726153939909114}
   - component: {fileID: 6382615695074306993}
   - component: {fileID: 3898791857273031192}
+  - component: {fileID: 6382615695074306994}
   m_Layer: 8
   m_Name: GrabSlot
   m_TagString: Untagged
@@ -16914,6 +17063,33 @@ MonoBehaviour:
   GrabSlot: {fileID: 2827916736877493038}
   heldObj: {fileID: 0}
   childObj: {fileID: 0}
+--- !u!54 &6382615695074306994
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2827916736877493038}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6471323715057464327
 GameObject:
   m_ObjectHideFlags: 0
