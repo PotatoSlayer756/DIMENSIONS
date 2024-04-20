@@ -10,9 +10,9 @@ using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 5f;
+    public float playerSpeed = 7f;
     public float jumpForce = 5.0f, respawnR, groundDistance;
-    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false;
+    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false;
     public int keyCount = 0, CameraRotation;
     public string deathcause;
 
@@ -68,6 +68,11 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + moveDirection * playerSpeed * Time.deltaTime);
         }
 
+        if (isHolding)
+        {
+            playerSpeed = 5f;
+        }
+
         // Update the player's rotation to face the movement direction
         if (moveDirection != Vector3.zero)
         {
@@ -81,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0f || strafeInput != 0f)
         {
             anim.SetFloat("Speed", 2);
-            if (isOnGround)
+            if (isOnGround & !isOnElevator & !isHolding)
             {
                 DustPlays();
             }
@@ -115,24 +120,20 @@ public class PlayerMovement : MonoBehaviour
         anim.transform.localEulerAngles = Vector3.zero;
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Elevator"))
         {
-            isOnGround = true;
-            anim.SetBool("IsOnGround", isOnGround);
+            isOnElevator = true;
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Elevator"))
         {
-            isOnGround = false;
-            anim.SetBool("IsOnGround", isOnGround);
+            isOnElevator = false;
         }
-    }*/
-
+    }
     private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("Death")))

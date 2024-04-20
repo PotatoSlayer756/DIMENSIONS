@@ -5548,7 +5548,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2087565761}
   serializedVersion: 8
   lengthInSec: 5
-  simulationSpeed: 2.71
+  simulationSpeed: 1.85
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -5793,7 +5793,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.38
+      scalar: 1.55
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6376,7 +6376,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.11
+      scalar: 0.7
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -11696,6 +11696,7 @@ MonoBehaviour:
   isLasered: 0
   canHeMove: 1
   isDustPlaying: 0
+  isOnElevator: 0
   keyCount: 0
   CameraRotation: 0
   deathcause: 
