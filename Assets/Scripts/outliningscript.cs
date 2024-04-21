@@ -23,7 +23,6 @@ public class outliningscript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("triggering");
         if(other.gameObject == grabslot)
         {
             Debug.Log("setting outline");

@@ -3355,11 +3355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: wallRestrictionMax
-      value: 97
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: wallRestrictionMin
-      value: 83
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7654829084139890392, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Name
@@ -3749,7 +3749,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 10fc4df2da32a41aaa32d77bc913491c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: f47525d6141182247a3aacd17ec4e042, type: 2}
 --- !u!4 &1354188536
 Transform:
   m_ObjectHideFlags: 0
@@ -4082,11 +4082,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: wallRestrictionMax
-      value: 103
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: wallRestrictionMin
-      value: 78
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7654829084139890392, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Name
@@ -5053,6 +5053,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f3918bd7b0eff6d4b9d81f0f5adea5d9, type: 2}
+    - target: {fileID: 6231275263983295643, guid: e236c98b1f72d154280ba2c461388f09, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -70.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231275263983295643, guid: e236c98b1f72d154280ba2c461388f09, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -16.94
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

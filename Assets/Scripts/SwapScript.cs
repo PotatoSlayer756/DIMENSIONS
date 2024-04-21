@@ -46,7 +46,7 @@ public class SwapScript : MonoBehaviour
                         break;
 
                     case false:
-                        Player.transform.position = WallPlayerSlot.gameObject.transform.position;
+                        Player.transform.position = gameObject.transform.position;
                         WallPlayer.SetActive(false);
                         Player.SetActive(true);
                         mainCamera.gameObject.SetActive(true);
