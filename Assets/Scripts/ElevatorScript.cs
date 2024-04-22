@@ -11,18 +11,21 @@ public class ElevatorScript : MonoBehaviour
     [HideInInspector]
     public Rigidbody rb;
     private bool movingTowardsA = true, hasPlayerTouched = false;
-
+    Vector3 pA, pB;
     private void Awake()
     {
         g1anim = gear1.GetComponent<Animator>();
-        g2anim = gear2.GetComponent<Animator>();    
+        g2anim = gear2.GetComponent<Animator>();  
+        rb = GetComponent<Rigidbody>();
+        pA = pointA.position;
+        pB = pointB.position;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (hasPlayerTouched)
         {
             Debug.Log("elevator activated");
-            if (movingTowardsA)
+            /*if (movingTowardsA)
             {
                 transform.position = Vector3.MoveTowards(transform.position, pointA.position, speed * Time.deltaTime);
                 if (transform.position == pointA.position)
@@ -33,6 +36,23 @@ public class ElevatorScript : MonoBehaviour
             else
             {
                 transform.position = Vector3.MoveTowards(transform.position, pointB.position, speed * Time.deltaTime);
+                if (transform.position == pointB.position)
+                {
+                    movingTowardsA = true;
+                }
+            }*/
+
+            if (movingTowardsA)
+            {
+                rb.MovePosition(Vector3.MoveTowards(rb.position, pA, speed * Time.fixedDeltaTime));
+                if (transform.position == pointA.position)
+                {
+                    movingTowardsA = false;
+                }
+            }
+            else
+            {
+                rb.MovePosition(Vector3.MoveTowards(rb.position, pB, speed * Time.fixedDeltaTime));
                 if (transform.position == pointB.position)
                 {
                     movingTowardsA = true;
@@ -59,7 +79,7 @@ public class ElevatorScript : MonoBehaviour
         {
             hasPlayerTouched = true;
             print("entered elevator");
-            collision.transform.parent = transform;
+            //collision.transform.parent = transform;
         }
 
     }
@@ -69,7 +89,7 @@ public class ElevatorScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             print("exited elevator");
-            collision.transform.parent = null; // Remove the player from being a child of the elevator
+            //collision.transform.parent = null; // Remove the player from being a child of the elevator
         }
     }
 }
