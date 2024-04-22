@@ -1279,6 +1279,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7480872379413779252, guid: 626b316c1b7131b4ea0a43a2ec7d5b8e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480872379413779252, guid: 626b316c1b7131b4ea0a43a2ec7d5b8e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.07
+      objectReference: {fileID: 0}
     - target: {fileID: 7898629830292466540, guid: 626b316c1b7131b4ea0a43a2ec7d5b8e, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1303,7 +1311,7 @@ PrefabInstance:
     - target: {fileID: 749421459881649893, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 500e733574922d04ea961553b1b26a63, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247a8f8ab0ed1343b7257d9bccb44d5, type: 2}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Player
       value: 
@@ -3283,6 +3291,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8318998950168350797, guid: 17a820f2d034fe046b0e5bda6ba91dac, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0f932043398330947b55750d0be5d555, type: 2}
     - target: {fileID: 8382228779757468338, guid: 17a820f2d034fe046b0e5bda6ba91dac, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -3312,7 +3324,7 @@ PrefabInstance:
     - target: {fileID: 749421459881649893, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 500e733574922d04ea961553b1b26a63, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247a8f8ab0ed1343b7257d9bccb44d5, type: 2}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Player
       value: 
@@ -4039,7 +4051,7 @@ PrefabInstance:
     - target: {fileID: 749421459881649893, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 500e733574922d04ea961553b1b26a63, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247a8f8ab0ed1343b7257d9bccb44d5, type: 2}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Player
       value: 
@@ -5563,14 +5575,14 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 1
+  prewarm: 0
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0
+    scalar: 0.5
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -9133,9 +9145,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -9306,7 +9318,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 512
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -11839,7 +11851,7 @@ PrefabInstance:
     - target: {fileID: 749421459881649893, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 2100000, guid: 500e733574922d04ea961553b1b26a63, type: 2}
+      objectReference: {fileID: 2100000, guid: 6247a8f8ab0ed1343b7257d9bccb44d5, type: 2}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Player
       value: 

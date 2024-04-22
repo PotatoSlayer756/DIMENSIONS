@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 DustPlays();
             }
-            else if (!isOnGround)
+            else //if (!isOnGround & isOnElevator & isHolding)
             {
                 dust.Stop();
                 isDustPlaying = false;
@@ -150,6 +150,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.CompareTag("StopMovement"))
         {
+            Debug.Log("movement blocked...");
             canHeMove = false;
         }
         if (other.CompareTag("Portal"))
@@ -167,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("StopMovement"))
         {
+            Debug.Log("movement unblocked...");
             canHeMove = true;
         }
     }
@@ -185,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!isDustPlaying)
         {
+            Debug.Log("player particles starting...");
             dust.Play();
             isDustPlaying = true;
         }

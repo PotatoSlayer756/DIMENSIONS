@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 5661646419701525123}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2815919, y: -0, z: -0, w: 0.9595343}
-  m_LocalPosition: {x: 0, y: 0.96000004, z: 0.96000004}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0.96000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: eb6dd550c730540478e03531a250f798, type: 2}
+  m_Material: {fileID: 2100000, guid: 6247a8f8ab0ed1343b7257d9bccb44d5, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 1
   m_StartAngleFade: 180
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_DecalLayerMask: 8
   m_ScaleMode: 0
   m_Offset: {x: 0, y: 0, z: 0}
-  m_Size: {x: 3, y: 3, z: 6.8}
+  m_Size: {x: 5, y: 5, z: 6.8}
   m_FadeFactor: 1
   m_Version: 2
 --- !u!1 &7654829084139890392
