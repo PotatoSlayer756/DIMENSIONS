@@ -27,7 +27,6 @@ public class DialogueController : MonoBehaviour
             if (dialogueCanStart)
             {
                 Debug.Log("dialogue started");
-                dialogueWindow.gameObject.SetActive(true);
                 NextSentence();
             }
         }
@@ -41,8 +40,9 @@ public class DialogueController : MonoBehaviour
             index = 0;
         }
     }
-    void NextSentence()
+    public void NextSentence()
     {
+        dialogueWindow.gameObject.SetActive(true);
         if (index <= sentences.Length - 1)
         {
             dialogueText.text = "";

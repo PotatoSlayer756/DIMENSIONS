@@ -7,11 +7,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed = 7f;
-    public float jumpForce = 5.0f, respawnR, groundDistance;
+    public float jumpForce = 5.0f, respawnR, groundDistance, cameraYRotation;
     public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false;
     public int keyCount = 0, CameraRotation;
     public string deathcause;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private PickUpScript pickUpScript;
     private TimerScript timerScript;
     private SceneLoaderScript sceneLoaderScript;
+    private CameraRotationScript camerarotationscript;
 
     Vector3 playerPosition;
     Animator anim;
@@ -126,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isOnElevator = true;
         }
+        
     }
     private void OnCollisionExit(Collision collision)
     {
@@ -139,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
         if ((other.CompareTag("Death")))
         {
             deathcause = other.gameObject.name;
+            Debug.Log("player died by " + deathcause);
             PlayerRespawn(respawnPos, playerCamera, deathcause);
         }
         if (other.CompareTag("CheckPoint"))
@@ -159,8 +163,20 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.CompareTag("Key"))
         {
+            Debug.Log("key picked up");
             keyCount++;
             other.gameObject.SetActive(false);
+        }
+        if (other.CompareTag("RotationTrigger"))
+        {
+            Debug.Log("trigger found");
+            cameraYRotation = playerCamera.transform.rotation.y;
+            camerarotationscript = other.GetComponent<CameraRotationScript>();
+            if(cameraYRotation != camerarotationscript.neededRotation)
+            {
+                Debug.Log("rotating camera at " + camerarotationscript.neededRotation + "degrees");
+                playerCamera.transform.DORotate(new Vector3(35, camerarotationscript.neededRotation, 0), 0.5f);
+            }
         }
     }
 

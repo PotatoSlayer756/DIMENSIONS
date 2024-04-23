@@ -8,6 +8,7 @@ public class NPCscript : MonoBehaviour
     [SerializeField]
     public DialogueController dialogueScript;
     public GameObject dialogueController, GrabSlot;
+    bool playerMeetsNPCfirsttime = true;
     private void Start()
     {
         dialogueScript = dialogueController.GetComponent<DialogueController>();
@@ -19,6 +20,12 @@ public class NPCscript : MonoBehaviour
         {
             Debug.Log("dialogue can start");
             dialogueScript.dialogueCanStart = true;
+            if(playerMeetsNPCfirsttime)
+            {
+                Debug.Log("starting first time dialogue");
+                dialogueScript.NextSentence();
+                playerMeetsNPCfirsttime = false;
+            }
         }
     }
     private void OnTriggerExit(Collider other)

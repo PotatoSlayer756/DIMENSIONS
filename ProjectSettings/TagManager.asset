@@ -16,6 +16,7 @@ TagManager:
   - MagicWall
   - StopMovement
   - Pressable
+  - RotationTrigger
   layers:
   - Default
   - TransparentFX
