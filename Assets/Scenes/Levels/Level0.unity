@@ -11870,6 +11870,10 @@ PrefabInstance:
       propertyPath: m_BlockingMask.m_Bits
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1494421528994344399, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2351288316472487248, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -11979,8 +11983,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: db723a399b7e57f4099f227378d6853c, type: 2}
     - target: {fileID: 8103746547308037415, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8935171205380702547, guid: db723a399b7e57f4099f227378d6853c, type: 2}
+    - target: {fileID: 8103746547308037415, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8250236580324694575, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -11990,6 +11998,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 774.6687
       objectReference: {fileID: 0}
+    - target: {fileID: 8687600918789710893, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8956827074266824548, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_text
       value: E - Interact
@@ -11998,6 +12010,14 @@ PrefabInstance:
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: db723a399b7e57f4099f227378d6853c, type: 2}
+    - target: {fileID: 8956827074266824548, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -8935171205380702547, guid: db723a399b7e57f4099f227378d6853c, type: 2}
+    - target: {fileID: 8956827074266824548, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 7182184863571981449, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
@@ -17293,6 +17313,7 @@ MonoBehaviour:
   jumpForce: 7.99
   respawnR: 0
   groundDistance: 1.5
+  cameraYRotation: 0
   isOnGround: 1
   isHolding: 0
   isLasered: 0
