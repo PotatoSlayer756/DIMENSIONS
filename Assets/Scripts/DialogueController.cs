@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Unity.VisualScripting;
+using UnityEngine.Events;
 
 public class DialogueController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class DialogueController : MonoBehaviour
     public string[] sentences;
     private int index;
     public float dialogueSpeed;
+    public UnityEvent onDialogueEnd;
     [HideInInspector]
     public bool dialogueCanStart = false;
     public RawImage dialogueWindow;
@@ -53,6 +55,7 @@ public class DialogueController : MonoBehaviour
             dialogueText.text = "";
             dialogueWindow.gameObject.SetActive(false);
             index = 0;
+            onDialogueEnd.Invoke();
         }
     }
 

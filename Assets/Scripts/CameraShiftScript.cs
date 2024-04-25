@@ -43,6 +43,21 @@ public class CameraShiftScript : MonoBehaviour
         }
     }
 
+    public void AppearBriefly()
+    {
+        StartCoroutine(DeactivateObjectCoroutine());
+    }
+    private IEnumerator DeactivateObjectCoroutine()
+    {
+        Debug.Log("trigger dissapearing in 3 sec...");
+        yield return new WaitForSeconds(3);
+        virtualCamera.transform.rotation = oldRotation;
+        Debug.Log(oldRotation);
+        virtualCamera.transform.DOMove(new Vector3(oldPosition.transform.position.x, oldPosition.transform.position.y, oldPosition.transform.position.z), 0.6f);
+        virtualCamera.Follow = oldFollow;
+        isPlayerIn = false;
+        gameObject.SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

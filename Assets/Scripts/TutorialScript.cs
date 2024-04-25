@@ -7,7 +7,7 @@ using TMPro;
 
 public class TutorialScript : MonoBehaviour
 {
-    public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4;
+    public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4, gateOpenText;
     public float displayDuration = 1f; // Duration in seconds
     public float fadeDuration = 1f; // Duration in seconds
     bool isNotWall;
@@ -57,6 +57,11 @@ public class TutorialScript : MonoBehaviour
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext1, 1.0f));
         }
+    }
+
+    public void GateOpenedNotification()
+    {
+        StartCoroutine(FadeTextToZeroAlpha(gateOpenText, 3.0f));
     }
     public IEnumerator FadeTextToZeroAlpha(TextMeshProUGUI textToFade, float t)
     {

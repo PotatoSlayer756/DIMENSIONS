@@ -17,6 +17,7 @@ TagManager:
   - StopMovement
   - Pressable
   - RotationTrigger
+  - Secret
   layers:
   - Default
   - TransparentFX

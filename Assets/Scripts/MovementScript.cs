@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -13,23 +14,26 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed, holdingSpeed;
     public float jumpForce = 5.0f, respawnR, groundDistance, cameraYRotation;
-    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false;
+    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false, isRespawning = false;
     public int keyCount = 0, CameraRotation;
     public string deathcause;
+    //public List<GameObject> secrets;
 
     public Rigidbody rb;
     public LayerMask groundMask;
-    public GameObject portal;
+    public GameObject portal, aa;
     public Vector3 respawnPos;
     public CinemachineVirtualCamera playerCamera;
     public GameObject WallPlayer;
     public Transform GroundChecker;
     public ParticleSystem dust;
+    public UnityEvent onKeyPicked, onPlayerDeath;
 
     private zonescript zone;
     private PickUpScript pickUpScript;
     private TimerScript timerScript;
     private SceneLoaderScript sceneLoaderScript;
+    private SecretScript secretScript;
     private CameraRotationScript camerarotationscript;
 
     Vector3 playerPosition;
@@ -103,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", 0);
             //dust.Stop();
             isDustPlaying = false;
+        }
+
+        if(keyCount == 3)
+        {
+            onKeyPicked.Invoke();
         }
         anim.SetBool("IsHolding", isHolding);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
@@ -178,6 +187,11 @@ public class PlayerMovement : MonoBehaviour
                 playerCamera.transform.DORotate(new Vector3(35, camerarotationscript.neededRotation, 0), 0.5f);
             }
         }
+
+        if (other.CompareTag("Secret"))
+        {
+            //secrets.Add(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -190,13 +204,21 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)
     {
+        onPlayerDeath.Invoke();
         pickUpScript.DropObject(pickUpScript.childObj);
         isLasered = false;
         print("player respawns, killed by " + deathcause);
         transform.position = respawnPos;
         print("respawned at - " + respawnPos + ", with rotation - " + respawnR);
         playerCamera.transform.rotation = Quaternion.Euler(35, respawnR, 0);
-        WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0); //баг 003
+        WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0); 
+
+        //if(secrets.Count > 0)
+       // {
+            //secretScript = secrets[secrets.Count - 1].GetComponent<SecretScript>();
+            //secretScript.MoveBack();
+            //secrets.RemoveAt(secrets.Count - 1);
+       // }
     }
 
     void DustPlays()

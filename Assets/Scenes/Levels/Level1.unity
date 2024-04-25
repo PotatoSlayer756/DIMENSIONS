@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 262.33694, g: 325.04984, b: 430.2193, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1854,6 +1854,7 @@ MonoBehaviour:
   tutorialtext2: {fileID: 0}
   tutorialtext3: {fileID: 8898504526381228174}
   tutorialtext4: {fileID: 0}
+  gateOpenText: {fileID: 0}
   displayDuration: 2
   fadeDuration: 1
 --- !u!1 &557033783
@@ -3479,6 +3480,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a784bc2b3f7eb5d49be14ea784f2236b, type: 3}
+--- !u!1001 &1222704066
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 74.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 17.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170612934221844713, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7769742968823635898, guid: d685618502892d741aa91dceb00ef300, type: 3}
+      propertyPath: m_Name
+      value: SecretObj
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d685618502892d741aa91dceb00ef300, type: 3}
 --- !u!1 &1255626240
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,8 +10745,8 @@ Transform:
   m_GameObject: {fileID: 4321942214119489293}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalPosition: {x: -0, y: 0, z: -0.5051}
+  m_LocalScale: {x: 100, y: 106.27256, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9077883299760234466}
@@ -11608,7 +11666,7 @@ Transform:
   m_GameObject: {fileID: 7665663474047120132}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.71504, y: 23.24926, z: -8.438634}
+  m_LocalPosition: {x: -49.715015, y: 23.24926, z: -8.438634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11723,6 +11781,7 @@ MonoBehaviour:
   canHeMove: 1
   isDustPlaying: 0
   isOnElevator: 0
+  isRespawning: 0
   keyCount: 0
   CameraRotation: 0
   deathcause: 
@@ -11731,11 +11790,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   portal: {fileID: 1547989945}
+  aa: {fileID: 0}
   respawnPos: {x: -49.51, y: 12.73, z: 2.66}
   playerCamera: {fileID: 7764649931141011216}
   WallPlayer: {fileID: 7838697625025222908}
   GroundChecker: {fileID: 267658642}
   dust: {fileID: 2087565764}
+  onKeyPicked:
+    m_PersistentCalls:
+      m_Calls: []
+  onPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5449273178080421640
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -12222,7 +12288,7 @@ Transform:
   m_GameObject: {fileID: 8803668856899318794}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.71504, y: 23.24926, z: -8.438634}
+  m_LocalPosition: {x: -49.715015, y: 23.24926, z: -8.438634}
   m_LocalScale: {x: 1.0000252, y: 0.9649096, z: 1.0396218}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13014,3 +13080,4 @@ SceneRoots:
   - {fileID: 9077883299760234466}
   - {fileID: 1986943215}
   - {fileID: 1354188536}
+  - {fileID: 1222704066}
