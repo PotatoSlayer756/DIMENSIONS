@@ -11,7 +11,7 @@ using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float playerSpeed = 7f;
+    public float playerSpeed, holdingSpeed;
     public float jumpForce = 5.0f, respawnR, groundDistance, cameraYRotation;
     public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false;
     public int keyCount = 0, CameraRotation;
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isHolding)
         {
-            playerSpeed = 5f;
+            playerSpeed = holdingSpeed;
         }
 
         // Update the player's rotation to face the movement direction
@@ -90,18 +90,18 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", 2);
             if (isOnGround & !isOnElevator & !isHolding)
             {
-                DustPlays();
+                //DustPlays();
             }
             else //if (!isOnGround & isOnElevator & isHolding)
             {
-                dust.Stop();
+                //dust.Stop();
                 isDustPlaying = false;
             }
         }
         else
         {
             anim.SetFloat("Speed", 0);
-            dust.Stop();
+            //dust.Stop();
             isDustPlaying = false;
         }
         anim.SetBool("IsHolding", isHolding);

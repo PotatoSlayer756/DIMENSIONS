@@ -25316,8 +25316,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35977b9a3bae35a42b5325eb6f095913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 5
-  jumpForce: 5
+  playerSpeed: 7
+  holdingSpeed: 5
+  jumpForce: 8
   respawnR: 0
   groundDistance: 1.3
   cameraYRotation: 0
