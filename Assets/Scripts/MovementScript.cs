@@ -14,20 +14,24 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed, holdingSpeed;
     public float jumpForce = 5.0f, respawnR, groundDistance, cameraYRotation;
-    public bool isOnGround, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false, isRespawning = false;
+    public bool isOnGround = false, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false, isRespawning = false, isMoving; 
     public int keyCount = 0, CameraRotation;
     public string deathcause;
     //public List<GameObject> secrets;
 
     public Rigidbody rb;
     public LayerMask groundMask;
-    public GameObject portal, aa;
+    public GameObject portal;
     public Vector3 respawnPos;
     public CinemachineVirtualCamera playerCamera;
-    public GameObject WallPlayer;
+    public GameObject WallPlayer, walkingFX;
     public Transform GroundChecker;
     public ParticleSystem dust;
     public UnityEvent onKeyPicked, onPlayerDeath;
+
+    [Header("SOUNDS")]
+    [SerializeField] private AudioClip[] jumpSoundClips;
+
 
     private zonescript zone;
     private PickUpScript pickUpScript;
@@ -48,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
+        walkingFX.SetActive(false);
+
     }
 
     void Update()
@@ -92,23 +98,23 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput != 0f || strafeInput != 0f)
         {
             anim.SetFloat("Speed", 2);
-            if (isOnGround & !isOnElevator & !isHolding)
-            {
-                //DustPlays();
-            }
-            else //if (!isOnGround & isOnElevator & isHolding)
-            {
-                //dust.Stop();
-                isDustPlaying = false;
-            }
+            isMoving = true;
         }
         else
         {
             anim.SetFloat("Speed", 0);
-            //dust.Stop();
+            isMoving = false;
             isDustPlaying = false;
         }
 
+        if (isMoving && isOnGround)
+        {
+            walkingFX.SetActive(true);
+        }
+        else if(!isMoving || !isOnGround)
+        {
+            walkingFX.SetActive(false);
+        }
         if(keyCount == 3)
         {
             onKeyPicked.Invoke();
@@ -118,6 +124,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnGround && !isHolding)
             {
+                //AudioManager.Instance.PlaySoundClip(jumpSoundClip, transform, 1f);
+                AudioManager.Instance.PlayRandomSoundClip(jumpSoundClips, transform, 1f);
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
                 anim.SetBool("IsOnGround", isOnGround);
