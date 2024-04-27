@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("SOUNDS")]
     [SerializeField] private AudioClip[] jumpSoundClips;
     [SerializeField] private AudioClip deathSoundClip;
+    [SerializeField] private AudioClip keySoundClip;
+
 
 
     private zonescript zone;
@@ -181,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Key"))
         {
             Debug.Log("key picked up");
+            AudioManager.Instance.PlaySoundClip(keySoundClip, transform, 1f);
             keyCount++;
             other.gameObject.SetActive(false);
         }

@@ -6,7 +6,7 @@ public class ElevatorScript : MonoBehaviour
 {
     public Transform pointA, pointB;
     public float speed = 2.0f;
-    public GameObject gear1, gear2;
+    public GameObject gear1, gear2, elevatorSFX;
     Animator g1anim, g2anim;
     [HideInInspector]
     public Rigidbody rb;
@@ -25,6 +25,7 @@ public class ElevatorScript : MonoBehaviour
         if (hasPlayerTouched)
         {
             Debug.Log("elevator activated");
+            elevatorSFX.SetActive(true);
             /*if (movingTowardsA)
             {
                 transform.position = Vector3.MoveTowards(transform.position, pointA.position, speed * Time.deltaTime);
@@ -69,6 +70,7 @@ public class ElevatorScript : MonoBehaviour
     }
     public void Deactivated()
     {
+        elevatorSFX.SetActive(false);
         hasPlayerTouched = false;
         g1anim.SetBool("PlayerEnt", false);
         g2anim.SetBool("PlayerEnt", false);

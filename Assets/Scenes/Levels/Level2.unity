@@ -140,6 +140,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
       objectReference: {fileID: 2170935560373898841}
@@ -7475,6 +7479,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
       objectReference: {fileID: 2170935560373898841}
@@ -10156,6 +10164,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
       objectReference: {fileID: 2170935560373898841}
@@ -12224,6 +12236,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 994998699}
     - target: {fileID: 6357901474255066020, guid: 3ffcaea6fcc746c4d8cc299acc2fe8e7, type: 3}
+      propertyPath: npcSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9115f911cf54ca8458d8a4a62cc1dcd6, type: 3}
+    - target: {fileID: 6357901474255066020, guid: 3ffcaea6fcc746c4d8cc299acc2fe8e7, type: 3}
       propertyPath: dialogueWindow
       value: 
       objectReference: {fileID: 994998698}
@@ -12393,6 +12409,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
@@ -12976,6 +12996,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
       objectReference: {fileID: 2170935560373898841}
@@ -13195,6 +13219,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
@@ -13606,6 +13634,11 @@ PrefabInstance:
 --- !u!4 &1480340527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1803314392078988394, guid: 0539875add1c3a04fbe6b628b1105e4d, type: 3}
+  m_PrefabInstance: {fileID: 1480340526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1480340528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 285834913191808650, guid: 0539875add1c3a04fbe6b628b1105e4d, type: 3}
   m_PrefabInstance: {fileID: 1480340526}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1480907645
@@ -15876,6 +15909,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
       objectReference: {fileID: 2170935560373898841}
@@ -16119,6 +16156,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
@@ -17486,6 +17527,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 1480340528}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: GrabSlot
       value: 
@@ -19185,6 +19230,8 @@ MonoBehaviour:
   jumpSoundClips:
   - {fileID: 8300000, guid: ed665da73dd4d814db87435e548d888d, type: 3}
   - {fileID: 8300000, guid: 6b3b659ccd0be124ebaeb2a6ad5e5210, type: 3}
+  deathSoundClip: {fileID: 8300000, guid: 71479aeb213614e47bb15567b2057823, type: 3}
+  keySoundClip: {fileID: 8300000, guid: ff9187a7051ed6745bc8d8cc4d4f3509, type: 3}
 --- !u!114 &5449273178080421640
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -20440,6 +20487,10 @@ PrefabInstance:
     - target: {fileID: 4473982701875533762, guid: 48ce449fde0259a4197111f2dafd51b0, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5132536265391479309, guid: 48ce449fde0259a4197111f2dafd51b0, type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7270660278450112212, guid: 48ce449fde0259a4197111f2dafd51b0, type: 3}
       propertyPath: m_Layer

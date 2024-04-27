@@ -16,6 +16,7 @@ public class DialogueController : MonoBehaviour
     [HideInInspector]
     public bool dialogueCanStart = false;
     public RawImage dialogueWindow;
+    [SerializeField] private AudioClip npcSoundClip;
     void Start()
     {
         
@@ -28,6 +29,7 @@ public class DialogueController : MonoBehaviour
         {
             if (dialogueCanStart)
             {
+
                 Debug.Log("dialogue started");
                 NextSentence();
             }
@@ -64,6 +66,7 @@ public class DialogueController : MonoBehaviour
         foreach (char Character in sentences[index].ToCharArray())
         {
             dialogueText.text += Character;
+            AudioManager.Instance.PlaySoundClip(npcSoundClip, transform, 1f);
             yield return new WaitForSeconds(dialogueSpeed);
         }
         index++;    
