@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject WallPlayer, walkingFX;
     public Transform GroundChecker;
     public ParticleSystem dust;
-    public UnityEvent onKeyPicked, onPlayerDeath;
+    public UnityEvent onKeyPicked, onPlayerDeath, onSecretFound, onSecretLost;
 
     [Header("SOUNDS")]
     [SerializeField] private AudioClip[] jumpSoundClips;
@@ -124,11 +124,10 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isOnGround && !isHolding)
             {
-                //AudioManager.Instance.PlaySoundClip(jumpSoundClip, transform, 1f);
-                AudioManager.Instance.PlayRandomSoundClip(jumpSoundClips, transform, 1f);
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
                 anim.SetBool("IsOnGround", isOnGround);
+                AudioManager.Instance.PlayRandomSoundClip(jumpSoundClips, transform, 1f);
             }
         }
         if (isLasered)
@@ -198,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.CompareTag("Secret"))
         {
-            //secrets.Add(other.gameObject);
+            onSecretFound.Invoke();
         }
     }
 
@@ -212,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)
     {
+        onSecretLost.Invoke();
         onPlayerDeath.Invoke();
         pickUpScript.DropObject(pickUpScript.childObj);
         isLasered = false;
@@ -219,14 +219,7 @@ public class PlayerMovement : MonoBehaviour
         transform.position = respawnPos;
         print("respawned at - " + respawnPos + ", with rotation - " + respawnR);
         playerCamera.transform.rotation = Quaternion.Euler(35, respawnR, 0);
-        WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0); 
-
-        //if(secrets.Count > 0)
-       // {
-            //secretScript = secrets[secrets.Count - 1].GetComponent<SecretScript>();
-            //secretScript.MoveBack();
-            //secrets.RemoveAt(secrets.Count - 1);
-       // }
+        WallPlayer.transform.rotation = Quaternion.Euler(0, respawnR + CameraRotation, 0);
     }
 
     void DustPlays()

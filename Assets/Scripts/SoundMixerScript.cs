@@ -7,17 +7,17 @@ public class SoundMixerScript : MonoBehaviour
 {
     [SerializeField] private AudioMixer audioMixer;
 
-    void SetMasterVolume(float level)
+    public void SetMasterVolume(float level)
     {
         audioMixer.SetFloat("masterVolume", level);
     }
 
-    void SetSoundFXVolume(float level)
+    public void SetSoundFXVolume(float level)
     {
         audioMixer.SetFloat("soundFxVolume", level);
     }
 
-    void SetMusicVolume(float level)
+    public void SetMusicVolume(float level)
     {
         audioMixer.SetFloat("musicVolume", level);
     }

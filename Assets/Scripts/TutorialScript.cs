@@ -7,7 +7,7 @@ using TMPro;
 
 public class TutorialScript : MonoBehaviour
 {
-    public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4, gateOpenText;
+    public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4, gateOpenText, secretFoundText, secretLostText;
     public float displayDuration = 1f; // Duration in seconds
     public float fadeDuration = 1f; // Duration in seconds
     bool isNotWall;
@@ -63,8 +63,38 @@ public class TutorialScript : MonoBehaviour
     {
         StartCoroutine(FadeTextToZeroAlpha(gateOpenText, 3.0f));
     }
+
+    public void SecretFoundNotification()
+    {
+        StartCoroutine(FadeTextToZeroAlpha(secretFoundText, 3.0f));
+    }
+
+    public void SecretLostNotification()
+    {
+        StartCoroutine(FadeTextToZeroAlpha(secretLostText, 3.0f));
+        /*secretLostText.gameObject.SetActive(false);
+        Color newColor = secretLostText.color;
+        newColor.a = 255;
+        secretLostText.color = newColor;*/
+    }
+
+    /*public void SecretFoundNotificationRestored()
+    {
+        Color NewColor = secretFoundText.color;
+        NewColor.a = 255;
+        secretFoundText.color = NewColor;
+    }
+
+    public void SecretLostNotificationRestored()
+    {
+        Color NewColor = secretLostText.color;
+        NewColor.a = 255;
+        secretLostText.color = NewColor;
+    }*/
+
     public IEnumerator FadeTextToZeroAlpha(TextMeshProUGUI textToFade, float t)
     {
+        Debug.Log("fading " + textToFade + "...");
         Color newColor = textToFade.color;
         while (textToFade.color.a > 0)
         {
@@ -72,5 +102,8 @@ public class TutorialScript : MonoBehaviour
             textToFade.color = newColor;
             yield return null;
         }
+        //textToFade.gameObject.SetActive(false);
+        //newColor.a = 255;
+        //textToFade.color = newColor;
     }
 }
