@@ -225,7 +225,7 @@ PrefabInstance:
       addedObject: {fileID: 7684697459500950977}
     - targetCorrespondingSourceObject: {fileID: 7974104265752614812, guid: 42e8d0312b95b6547b5921338872908f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8824017145929285103}
+      addedObject: {fileID: 5309287999211961326}
   m_SourcePrefab: {fileID: 100100000, guid: 42e8d0312b95b6547b5921338872908f, type: 3}
 --- !u!4 &1994559342573453597 stripped
 Transform:
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
---- !u!114 &8824017145929285103
+--- !u!114 &5309287999211961326
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -284,3 +284,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Fade: {fileID: 0}
+  nextLevelSoundClip: {fileID: 8300000, guid: 91f552a48c8fe14449e3445579308bb0, type: 3}

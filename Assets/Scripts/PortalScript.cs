@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class PortalScript : MonoBehaviour
 {
     public GameObject Fade;
-    public bool isDebugOn;
+    //public bool isDebugOn;
     TimerScript timerScript;
     Animator fadeAnim;
     LevelFadingScript levelFadingScript;
+
+    [SerializeField] private AudioClip nextLevelSoundClip;
     //public GameObject debugMenu;
 
     private void Start()
@@ -34,6 +36,7 @@ public class PortalScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             timerScript.StopTimer();
+            AudioManager.Instance.PlaySoundClip(nextLevelSoundClip, transform, 1f);
             fadeAnim.SetTrigger("FadeOut");
         }
     }

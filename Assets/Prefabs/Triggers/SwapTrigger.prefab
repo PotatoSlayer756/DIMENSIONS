@@ -168,3 +168,4 @@ MonoBehaviour:
   playerInTrigger: 0
   wallRestrictionMin: 0
   wallRestrictionMax: 0
+  swappingSoundClip: {fileID: 8300000, guid: 4de4bf958f902d741b57e8dc32ab3de0, type: 3}

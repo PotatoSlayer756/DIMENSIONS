@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("SOUNDS")]
     [SerializeField] private AudioClip[] jumpSoundClips;
+    [SerializeField] private AudioClip deathSoundClip;
 
 
     private zonescript zone;
@@ -211,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)
     {
+        AudioManager.Instance.PlaySoundClip(deathSoundClip, transform, 1f);
         onSecretLost.Invoke();
         onPlayerDeath.Invoke();
         pickUpScript.DropObject(pickUpScript.childObj);

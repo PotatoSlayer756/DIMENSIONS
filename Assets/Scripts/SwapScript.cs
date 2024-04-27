@@ -5,13 +5,16 @@ using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 public class SwapScript : MonoBehaviour
 {
-    public GameObject Player, WallPlayer, GrabSlot, PlayerChecker, WallPlayerSlot;
+    public GameObject Player, WallPlayer, GrabSlot, PlayerChecker, WallPlayerSlot, BGMusic;
     public CinemachineVirtualCamera playerCamera;
     public Camera mainCamera, wallCamera;
     public bool playerInTrigger = false;
     public float wallRestrictionMin, wallRestrictionMax;
     private PickUpScript pickup;
     private WallMoving wp;
+
+    [SerializeField] private AudioClip swappingSoundClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +36,14 @@ public class SwapScript : MonoBehaviour
                 switch (Player.activeSelf)
                 {
                     case true:
+                        AudioManager.Instance.PlaySoundClip(swappingSoundClip, transform, 1f);
                         WallPlayer.transform.position = WallPlayerSlot.gameObject.transform.position;
                         wp.minX = wallRestrictionMin; wp.maxX = wallRestrictionMax;
                         Debug.Log(wp.minX + " , " + wp.maxX);
                         WallPlayer.SetActive(true);
                         print("is wallplayer active? " + WallPlayer.activeSelf);
+                        BGMusic.transform.parent = WallPlayer.transform;
+                        BGMusic.transform.position = WallPlayer.transform.position;
                         Player.SetActive(false);
                         mainCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
@@ -46,9 +52,12 @@ public class SwapScript : MonoBehaviour
                         break;
 
                     case false:
+                        AudioManager.Instance.PlaySoundClip(swappingSoundClip, transform, 1f);
                         Player.transform.position = gameObject.transform.position;
-                        WallPlayer.SetActive(false);
                         Player.SetActive(true);
+                        BGMusic.transform.parent = Player.transform;
+                        BGMusic.transform.position = Player.transform.position;
+                        WallPlayer.SetActive(false);
                         mainCamera.gameObject.SetActive(true);
                         wallCamera.gameObject.SetActive(false);
                         float wallCameraYRotation = wallCamera.transform.eulerAngles.y;

@@ -275,6 +275,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &141320011 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 285834913191808650, guid: 0539875add1c3a04fbe6b628b1105e4d, type: 3}
+  m_PrefabInstance: {fileID: 423633127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &154020450
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +623,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f4817eb68528824899929f27771e917, type: 3}
+--- !u!1 &213242565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2360922226316222388, guid: 8f4817eb68528824899929f27771e917, type: 3}
+  m_PrefabInstance: {fileID: 213242564}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &267658641
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1208,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 141320011}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Border1
       value: 
       objectReference: {fileID: 0}
@@ -1334,6 +1348,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResumeGame
       objectReference: {fileID: 0}
+    - target: {fileID: 2608467973227752603, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: db723a399b7e57f4099f227378d6853c, type: 2}
     - target: {fileID: 3171042695678305100, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1343,12 +1361,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1306127637}
     - target: {fileID: 3960804379147162916, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 213242565}
+    - target: {fileID: 3960804379147162916, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SettingsOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960804379147162916, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6765763776011048722, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_Name
       value: CanvasWithTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765763776011048722, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6891122588786184986, guid: b4c46d70fe4b37040bf789172ff3b13e, type: 3}
       propertyPath: m_SortingOrder
@@ -3157,6 +3187,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3074892644801786234}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 141320011}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Border1
       value: 
       objectReference: {fileID: 0}
@@ -3740,6 +3774,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 141320011}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Border1
       value: 
@@ -10729,7 +10767,7 @@ Transform:
   m_GameObject: {fileID: 7665663474047120132}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.71504, y: 23.24926, z: -8.438634}
+  m_LocalPosition: {x: 27.514961, y: 23.24926, z: -8.458633}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10924,6 +10962,7 @@ MonoBehaviour:
   jumpSoundClips:
   - {fileID: 8300000, guid: ed665da73dd4d814db87435e548d888d, type: 3}
   - {fileID: 8300000, guid: 6b3b659ccd0be124ebaeb2a6ad5e5210, type: 3}
+  deathSoundClip: {fileID: 8300000, guid: 71479aeb213614e47bb15567b2057823, type: 3}
 --- !u!114 &5449273178080421640
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -11025,6 +11064,10 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 3074892644801786234}
+    - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
+      propertyPath: BGMusic
+      value: 
+      objectReference: {fileID: 141320011}
     - target: {fileID: 3086935367979790309, guid: e5bcdbadd6418ea41a1028e6247f7745, type: 3}
       propertyPath: Border1
       value: 
@@ -11218,7 +11261,7 @@ Transform:
   m_GameObject: {fileID: 3074892644801786234}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: -49.73, y: 14.92, z: 2.82}
+  m_LocalPosition: {x: 27.5, y: 14.92, z: 2.8}
   m_LocalScale: {x: 1.5392, y: 1.9049706, z: 1.6861936}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11369,7 +11412,7 @@ Transform:
   m_GameObject: {fileID: 8803668856899318794}
   serializedVersion: 2
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -49.71504, y: 23.24926, z: -8.438634}
+  m_LocalPosition: {x: 27.514961, y: 23.24926, z: -8.458633}
   m_LocalScale: {x: 1.0000252, y: 0.9649096, z: 1.0396218}
   m_ConstrainProportionsScale: 0
   m_Children:

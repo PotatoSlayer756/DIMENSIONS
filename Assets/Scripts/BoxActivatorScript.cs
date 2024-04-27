@@ -10,6 +10,9 @@ public class BoxActivatorScript : MonoBehaviour
     public UnityEvent Activated, Disactivated;
     [HideInInspector]
     public Animator animator;
+
+    [SerializeField] private AudioClip activationSoundClip;
+
     void Start()
     {
         animator = activatingObject.GetComponent<Animator>();
@@ -24,6 +27,7 @@ public class BoxActivatorScript : MonoBehaviour
         if (collision.gameObject == neededObject)
         {
             Debug.Log("boxpad activated");
+            AudioManager.Instance.PlaySoundClip(activationSoundClip, transform, 1f);
             if (animator != null)
             {
                 animator.SetTrigger("PlayerEnt");

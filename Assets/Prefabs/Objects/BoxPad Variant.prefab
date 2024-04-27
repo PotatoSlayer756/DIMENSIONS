@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: animationname
       value: BridgeAnimation
       objectReference: {fileID: 0}
+    - target: {fileID: 4613128910985424687, guid: be4d54c228e46524d81e30484dadb244, type: 3}
+      propertyPath: activationSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c053dbe93da65f048b34d88bd582759e, type: 3}
     - target: {fileID: 5523722247928309284, guid: be4d54c228e46524d81e30484dadb244, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -19,6 +23,10 @@ PrefabInstance:
     - target: {fileID: 6659477047171355192, guid: be4d54c228e46524d81e30484dadb244, type: 3}
       propertyPath: m_Name
       value: BoxPad Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659477047171355192, guid: be4d54c228e46524d81e30484dadb244, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8130788880166063721, guid: be4d54c228e46524d81e30484dadb244, type: 3}
       propertyPath: m_LocalScale.x
@@ -180,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 91a7afc5cdf44924ab71eba32add67a5, type: 3}
       propertyPath: m_Name
       value: pad
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91a7afc5cdf44924ab71eba32add67a5, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

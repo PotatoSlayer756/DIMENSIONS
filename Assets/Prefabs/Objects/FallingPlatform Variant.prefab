@@ -124,6 +124,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 2597012897808673201}
+    - target: {fileID: 465969221400903892, guid: 563d39170a5275c4a9f4ffabd81325e3, type: 3}
+      propertyPath: fallingStonesSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c4d7946f7e2b98747aa9acb2806c4f13, type: 3}
     - target: {fileID: 2374984000980777683, guid: 563d39170a5275c4a9f4ffabd81325e3, type: 3}
       propertyPath: m_Enabled
       value: 0

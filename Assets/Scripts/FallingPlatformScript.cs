@@ -5,6 +5,7 @@ using UnityEngine;
 public class FallingPlatformScript : MonoBehaviour
 {
     public Animator animator;
+    public AudioClip fallingStonesSoundClip;
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -29,5 +30,10 @@ public class FallingPlatformScript : MonoBehaviour
                 animator.SetBool("IsPlayerOn", false);
             }
         }
+    }
+
+    public void StonesAreFalling()
+    {
+        AudioManager.Instance.PlaySoundClip(fallingStonesSoundClip, transform, 1f);
     }
 }
