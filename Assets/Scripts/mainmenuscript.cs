@@ -26,7 +26,6 @@ public class mainmenuscript : MonoBehaviour
         }
         if (zoomeye)
         {
-            AudioManager.Instance.PlaySoundClip(zoomeyeSoundClip, transform, 1f);
         }
     }
 
@@ -52,6 +51,6 @@ public class mainmenuscript : MonoBehaviour
 
     void EyeZoomPlay()
     {
-        zoomeye = true;
+        AudioManager.Instance.PlaySoundClip(zoomeyeSoundClip, transform, 1f);
     }
 }

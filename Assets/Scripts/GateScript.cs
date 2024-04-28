@@ -7,16 +7,21 @@ public class GateScript : MonoBehaviour
     public GameObject Player;
     private int keyCount;
     private PlayerMovement movement;
+    BoxCollider bc;
+    Animator anim;
     private void Start()
     {
         movement = Player.GetComponent<PlayerMovement>();
+        bc = GetComponent<BoxCollider>();
+        anim = GetComponent<Animator>();    
     }
     private void Update()
     {
         keyCount = movement.keyCount;
         if(keyCount == 3)
         {
-            gameObject.SetActive(false);
+            anim.SetBool("GateOpen", true);
+            bc.isTrigger = true;
         }
     }
 }

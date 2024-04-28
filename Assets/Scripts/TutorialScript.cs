@@ -95,12 +95,12 @@ public class TutorialScript : MonoBehaviour
 
     public void SecretFoundNotification()
     {
-        StartCoroutine(FadeTextToZeroAlpha(secretFoundText, 3.0f));
+        StartCoroutine(FadeTextToZeroAlpha(secretFoundText, 1.5f));
     }
 
     public void SecretLostNotification()
     {
-        StartCoroutine(FadeTextToZeroAlpha(secretLostText, 3.0f));
+        StartCoroutine(FadeTextToZeroAlpha(secretLostText, 1.5f));
         /*secretLostText.gameObject.SetActive(false);
         Color newColor = secretLostText.color;
         newColor.a = 255;
