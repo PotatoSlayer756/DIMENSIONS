@@ -11,6 +11,9 @@ public class MagicWallScript : MonoBehaviour
     public GameObject activatingObject;
     ActivatingObjectScript activatingObjectScript;
     Animator anim;
+    [SerializeField] private AudioClip solvedSoundClip;
+
+
     bool puzzleActivated = false;
     void Start()
     {
@@ -39,6 +42,7 @@ public class MagicWallScript : MonoBehaviour
         }
         if(puzzleActivated == true)
         {
+            AudioManager.Instance.PlaySoundClip(solvedSoundClip, transform, 1f);
             Debug.Log(puzzleActivated);
             activatingObjectScript.Activated();
             gameObject.GetComponent<MagicWallScript>().enabled = false;

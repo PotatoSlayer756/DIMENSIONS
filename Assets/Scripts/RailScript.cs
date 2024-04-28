@@ -15,6 +15,8 @@ public class RailScript : MonoBehaviour
     public float speed, upper;
     public bool goesForward = true, isConnected = true;
 
+    [SerializeField] private AudioClip railSoundClip;
+
     private void Awake()
     {
         FindAllChildren();
@@ -86,6 +88,7 @@ public class RailScript : MonoBehaviour
                 Debug.Log("rail goes back");
                 startingPoint--;
             }
+            AudioManager.Instance.PlaySoundClip(railSoundClip, transform, 1f);
             moveable.transform.DOMove(new Vector3(points[startingPoint].transform.position.x, points[startingPoint].transform.position.y + upper, points[startingPoint].transform.position.z), 1f);
         }
     }

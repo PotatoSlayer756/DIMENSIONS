@@ -7,6 +7,8 @@ public class ButtonScript : MonoBehaviour
 {
     public UnityEvent buttonpressed;
     Animator animator;
+    [SerializeField] private AudioClip buttonSoundClip;
+
 
     private void Start()
     {
@@ -14,6 +16,7 @@ public class ButtonScript : MonoBehaviour
     }
     public void Activated()
     {
+        AudioManager.Instance.PlaySoundClip(buttonSoundClip, transform, 1f);
         animator.SetTrigger("buttonpressed");
         buttonpressed.Invoke();
     }

@@ -2441,6 +2441,7 @@ MonoBehaviour:
   upper: 0
   goesForward: 0
   isConnected: 1
+  railSoundClip: {fileID: 8300000, guid: c3bd50b6dbaded54da34bfc6edfea4d9, type: 3}
 --- !u!1001 &7042774306799302557
 PrefabInstance:
   m_ObjectHideFlags: 0

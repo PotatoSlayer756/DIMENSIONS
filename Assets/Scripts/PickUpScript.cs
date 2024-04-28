@@ -13,6 +13,9 @@ public class PickUpScript : MonoBehaviour
     private Quaternion Quaternion_Rotate_From;
     private Quaternion Quaternion_Rotate_To;
 
+    [SerializeField] private AudioClip[] pickupSoundClips;
+
+
     PlayerMovement playerMovement;
     private void Start()
     {
@@ -57,6 +60,7 @@ public class PickUpScript : MonoBehaviour
     {
         if(heldObj != null)
         {
+            AudioManager.Instance.PlayRandomSoundClip(pickupSoundClips, transform, 1f);
             playerMovement.isHolding = true;
             rb = heldObj.GetComponent<Rigidbody>();
             if (heldObj.GetComponent<ItemRespawnScript>() != null)
@@ -76,6 +80,7 @@ public class PickUpScript : MonoBehaviour
     {        
         if(childObj != null)
         {
+            AudioManager.Instance.PlayRandomSoundClip(pickupSoundClips, transform, 1f);
             playerMovement.isHolding = false;
             rb = heldObj.GetComponent<Rigidbody>();
             rb.isKinematic = false;

@@ -16630,7 +16630,8 @@ PrefabInstance:
       value: 0.506
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5507953077045577753, guid: 0539875add1c3a04fbe6b628b1105e4d, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0539875add1c3a04fbe6b628b1105e4d, type: 3}
@@ -16654,6 +16655,10 @@ MonoBehaviour:
   GrabSlot: {fileID: 2827916736877493038}
   heldObj: {fileID: 0}
   childObj: {fileID: 0}
+  pickupSoundClips:
+  - {fileID: 8300000, guid: c1923ad0c4b26a245a483411125f7dbc, type: 3}
+  - {fileID: 8300000, guid: 04b8ac1fed958e0429dd4fc09f2e1340, type: 3}
+  - {fileID: 8300000, guid: 41a28a07b7215ac459bb4c0a551f07d2, type: 3}
 --- !u!54 &6382615695074306994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17000,9 +17005,10 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
   jumpSoundClips:
-  - {fileID: 8300000, guid: ed665da73dd4d814db87435e548d888d, type: 3}
-  - {fileID: 8300000, guid: 6b3b659ccd0be124ebaeb2a6ad5e5210, type: 3}
+  - {fileID: 8300000, guid: eb1e30b6a5c04e74f9242fce066a960c, type: 3}
+  - {fileID: 8300000, guid: 98666e647587f0644870601c29cb4f7c, type: 3}
   deathSoundClip: {fileID: 8300000, guid: 71479aeb213614e47bb15567b2057823, type: 3}
+  keySoundClip: {fileID: 0}
 --- !u!114 &8355964195166176580
 MonoBehaviour:
   m_ObjectHideFlags: 0

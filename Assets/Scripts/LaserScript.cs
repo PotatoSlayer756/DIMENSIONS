@@ -15,6 +15,9 @@ public class LaserScript : MonoBehaviour
     ItemRespawnScript itemRespawnScript;
     MagicWallScript magicWallScript;
 
+    [SerializeField] private AudioClip rotationSoundClip;
+
+
     private void Start()
     {
         playerMovement = player.GetComponent<PlayerMovement>();
@@ -58,6 +61,7 @@ public class LaserScript : MonoBehaviour
     {
         if (!isRotating)
         {
+            AudioManager.Instance.PlaySoundClip(rotationSoundClip, transform, 1f);
             isRotating = true;
             transform.DORotate(new Vector3(0, transform.eulerAngles.y + 90, 0), 1f, RotateMode.Fast)
                 .OnComplete(() => isRotating = false);

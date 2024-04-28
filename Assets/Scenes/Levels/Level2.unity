@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311683686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a34dce33c4213c4393266fbcd799d5d, type: 3}
   m_Name: 
@@ -19228,8 +19228,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   jumpSoundClips:
-  - {fileID: 8300000, guid: ed665da73dd4d814db87435e548d888d, type: 3}
-  - {fileID: 8300000, guid: 6b3b659ccd0be124ebaeb2a6ad5e5210, type: 3}
+  - {fileID: 8300000, guid: eb1e30b6a5c04e74f9242fce066a960c, type: 3}
+  - {fileID: 8300000, guid: 98666e647587f0644870601c29cb4f7c, type: 3}
   deathSoundClip: {fileID: 8300000, guid: 71479aeb213614e47bb15567b2057823, type: 3}
   keySoundClip: {fileID: 8300000, guid: ff9187a7051ed6745bc8d8cc4d4f3509, type: 3}
 --- !u!114 &5449273178080421640
@@ -19545,6 +19545,10 @@ MonoBehaviour:
   GrabSlot: {fileID: 2170935560373898841}
   heldObj: {fileID: 0}
   childObj: {fileID: 0}
+  pickupSoundClips:
+  - {fileID: 8300000, guid: c1923ad0c4b26a245a483411125f7dbc, type: 3}
+  - {fileID: 8300000, guid: 41a28a07b7215ac459bb4c0a551f07d2, type: 3}
+  - {fileID: 8300000, guid: 04b8ac1fed958e0429dd4fc09f2e1340, type: 3}
 --- !u!114 &7101487447608007623 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3442877105851102814, guid: 22a4ac5d34f7e3448819f9ed893cb3ea, type: 3}

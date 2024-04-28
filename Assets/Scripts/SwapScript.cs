@@ -8,10 +8,12 @@ public class SwapScript : MonoBehaviour
     public GameObject Player, WallPlayer, GrabSlot, PlayerChecker, WallPlayerSlot, BGMusic;
     public CinemachineVirtualCamera playerCamera;
     public Camera mainCamera, wallCamera;
+    public ParticleSystem razlomparticles;
     public bool playerInTrigger = false;
     public float wallRestrictionMin, wallRestrictionMax;
     private PickUpScript pickup;
     private WallMoving wp;
+
 
     [SerializeField] private AudioClip swappingSoundClip;
 
@@ -25,6 +27,13 @@ public class SwapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(playerInTrigger)
+        {
+        }
+        else
+        {
+        }
+
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             print("Is he in trigger? " + playerInTrigger);
@@ -76,11 +85,13 @@ public class SwapScript : MonoBehaviour
     {
         if (other.gameObject == Player)
         {
+            razlomparticles.Play();
             print("player in trigger");
             playerInTrigger = true;
         }
         else if (other.gameObject == WallPlayer)
         {
+            razlomparticles.Play();
             print("player in trigger");
             playerInTrigger = true;
         }
@@ -89,11 +100,13 @@ public class SwapScript : MonoBehaviour
     {
         if (other.gameObject == Player)
         {
+            razlomparticles.Stop();
             print("player exits trigger");
             playerInTrigger = false;
         }
         else if (other.gameObject == WallPlayer)
         {
+            razlomparticles.Stop();
             print("player exits trigger");
             playerInTrigger = false;
         }
