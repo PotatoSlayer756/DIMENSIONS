@@ -27,13 +27,6 @@ public class SwapScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerInTrigger)
-        {
-        }
-        else
-        {
-        }
-
         if (Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.Joystick1Button2))
         {
             print("Is he in trigger? " + playerInTrigger);

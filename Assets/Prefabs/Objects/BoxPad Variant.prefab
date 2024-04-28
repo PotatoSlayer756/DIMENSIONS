@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 4613128910985424687, guid: be4d54c228e46524d81e30484dadb244, type: 3}
       propertyPath: activationSoundClip
       value: 
-      objectReference: {fileID: 8300000, guid: c053dbe93da65f048b34d88bd582759e, type: 3}
+      objectReference: {fileID: 8300000, guid: efbd549c248da6f4087f7afb34b0a950, type: 3}
     - target: {fileID: 5523722247928309284, guid: be4d54c228e46524d81e30484dadb244, type: 3}
       propertyPath: m_Enabled
       value: 0

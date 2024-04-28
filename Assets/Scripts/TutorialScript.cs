@@ -12,6 +12,35 @@ public class TutorialScript : MonoBehaviour
     public float fadeDuration = 1f; // Duration in seconds
     bool isNotWall;
 
+    private bool connected = false;
+
+    IEnumerator CheckForControllers()
+    {
+        while (true)
+        {
+            var controllers = Input.GetJoystickNames();
+
+            if (!connected && controllers.Length > 0)
+            {
+                connected = true;
+                Debug.Log("Connected");
+
+            }
+            else if (connected && controllers.Length == 0)
+            {
+                connected = false;
+                Debug.Log("Disconnected");
+            }
+
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    void Awake()
+    {
+        StartCoroutine(CheckForControllers());
+    }
+
     void Start()
     {
         
@@ -102,7 +131,7 @@ public class TutorialScript : MonoBehaviour
             textToFade.color = newColor;
             yield return null;
         }
-        //textToFade.gameObject.SetActive(false);
+        textToFade.gameObject.SetActive(false);
         //newColor.a = 255;
         //textToFade.color = newColor;
     }

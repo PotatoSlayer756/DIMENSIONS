@@ -61,7 +61,7 @@ public class LaserScript : MonoBehaviour
     {
         if (!isRotating)
         {
-            AudioManager.Instance.PlaySoundClip(rotationSoundClip, transform, 1f);
+            AudioManager.Instance.PlaySoundClip(rotationSoundClip, transform, 0.5f);
             isRotating = true;
             transform.DORotate(new Vector3(0, transform.eulerAngles.y + 90, 0), 1f, RotateMode.Fast)
                 .OnComplete(() => isRotating = false);

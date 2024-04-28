@@ -16,7 +16,7 @@ public class ButtonScript : MonoBehaviour
     }
     public void Activated()
     {
-        AudioManager.Instance.PlaySoundClip(buttonSoundClip, transform, 1f);
+        AudioManager.Instance.PlaySoundClip(buttonSoundClip, transform, 0.6f);
         animator.SetTrigger("buttonpressed");
         buttonpressed.Invoke();
     }

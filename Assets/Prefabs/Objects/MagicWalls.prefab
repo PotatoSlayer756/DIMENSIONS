@@ -179,7 +179,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   activatingObject: {fileID: 0}
-  solvedSoundClip: {fileID: 8300000, guid: c053dbe93da65f048b34d88bd582759e, type: 3}
+  solvedSoundClip: {fileID: 8300000, guid: efbd549c248da6f4087f7afb34b0a950, type: 3}
 --- !u!1 &6764666441404131336
 GameObject:
   m_ObjectHideFlags: 0

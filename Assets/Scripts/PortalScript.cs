@@ -16,6 +16,7 @@ public class PortalScript : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1f;
         //debugMenu.SetActive(false);
         fadeAnim = Fade.GetComponent<Animator>();
         timerScript = gameObject.GetComponent<TimerScript>();
@@ -38,6 +39,7 @@ public class PortalScript : MonoBehaviour
             timerScript.StopTimer();
             AudioManager.Instance.PlaySoundClip(nextLevelSoundClip, transform, 1f);
             fadeAnim.SetTrigger("FadeOut");
+            Time.timeScale = 0.5f;
         }
     }
     public void LoadLevel0()

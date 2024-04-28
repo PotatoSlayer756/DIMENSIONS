@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip keySoundClip;
 
 
-
+    private float speed;
     private zonescript zone;
     private PickUpScript pickUpScript;
     private TimerScript timerScript;
@@ -56,7 +56,6 @@ public class PlayerMovement : MonoBehaviour
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
         walkingFX.SetActive(false);
-
     }
 
     void Update()
@@ -80,12 +79,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (canHeMove)
         {
-            rb.MovePosition(rb.position + moveDirection * playerSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
         }
 
-        if (isHolding)
+        if (isHolding || !isOnGround)
         {
-            playerSpeed = holdingSpeed;
+            speed = holdingSpeed;
+        }
+        if(!isHolding)
+        {
+            speed = playerSpeed;
         }
 
         // Update the player's rotation to face the movement direction
@@ -130,7 +133,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;
                 anim.SetBool("IsOnGround", isOnGround);
-                AudioManager.Instance.PlayRandomSoundClip(jumpSoundClips, transform, 1f);
+                AudioManager.Instance.PlayRandomSoundClip(jumpSoundClips, transform, 0.6f);
             }
         }
         if (isLasered)
@@ -215,8 +218,11 @@ public class PlayerMovement : MonoBehaviour
     }
     public void PlayerRespawn(Vector3 respawnPos, CinemachineVirtualCamera playerCamera, string deathcause)
     {
+        if (transform.Find("SecretObj") != null)
+        {
+            onSecretLost.Invoke();
+        }
         AudioManager.Instance.PlaySoundClip(deathSoundClip, transform, 1f);
-        onSecretLost.Invoke();
         onPlayerDeath.Invoke();
         pickUpScript.DropObject(pickUpScript.childObj);
         isLasered = false;
