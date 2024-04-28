@@ -21,7 +21,7 @@ public class BoxActivatorScript : MonoBehaviour
     void Update()
     {
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         Debug.Log("collision");
         if (collision.gameObject == neededObject)
@@ -35,7 +35,7 @@ public class BoxActivatorScript : MonoBehaviour
             Activated.Invoke();
         }
     }
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject == neededObject)
         {

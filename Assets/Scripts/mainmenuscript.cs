@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class mainmenuscript : MonoBehaviour
 {
     public GameObject mainmenu;
+
+    [SerializeField] private AudioClip openingeyeSoundClip;
+    public AudioClip zoomeyeSoundClip;
+    public bool zoomeye;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,10 @@ public class mainmenuscript : MonoBehaviour
         {
             StartingGame();
         }
+        if (zoomeye)
+        {
+            AudioManager.Instance.PlaySoundClip(zoomeyeSoundClip, transform, 1f);
+        }
     }
 
     void StartingGame()
@@ -32,6 +40,7 @@ public class mainmenuscript : MonoBehaviour
             animator = Go.GetComponent<Animator>();
             animator.Play("OpeningEYE");
         }
+        AudioManager.Instance.PlaySoundClip(openingeyeSoundClip, transform, 1f);
         animator = GetComponent<Animator>();
         animator.Play("scalingintoeye");
     }
@@ -39,5 +48,10 @@ public class mainmenuscript : MonoBehaviour
     void ToTheNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    void EyeZoomPlay()
+    {
+        zoomeye = true;
     }
 }

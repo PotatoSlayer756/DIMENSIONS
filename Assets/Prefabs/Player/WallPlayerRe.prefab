@@ -619,6 +619,7 @@ MonoBehaviour:
   maxX: 0
   leftRaycast: {fileID: 1070892096887908369}
   rightRaycast: {fileID: 4309089647995369461}
+  wallSFX: {fileID: 0}
   projector: {fileID: 3908699483097257741}
 --- !u!54 &5984316699604123283
 Rigidbody:

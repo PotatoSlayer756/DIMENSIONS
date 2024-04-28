@@ -14,6 +14,7 @@ public class SwapScript : MonoBehaviour
     private PickUpScript pickup;
     private WallMoving wp;
 
+    AudioSource bgmusicaudio;
 
     [SerializeField] private AudioClip swappingSoundClip;
 
@@ -22,6 +23,7 @@ public class SwapScript : MonoBehaviour
     {
         pickup = GrabSlot.GetComponent<PickUpScript>();
         wp = WallPlayer.GetComponent<WallMoving>();
+        bgmusicaudio = BGMusic.GetComponent<AudioSource>();   
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class SwapScript : MonoBehaviour
                         print("is wallplayer active? " + WallPlayer.activeSelf);
                         BGMusic.transform.parent = WallPlayer.transform;
                         BGMusic.transform.position = WallPlayer.transform.position;
+                        bgmusicaudio.pitch = 1.8f;
                         Player.SetActive(false);
                         mainCamera.gameObject.SetActive(false);
                         wallCamera.gameObject.SetActive(true);
@@ -59,6 +62,7 @@ public class SwapScript : MonoBehaviour
                         Player.SetActive(true);
                         BGMusic.transform.parent = Player.transform;
                         BGMusic.transform.position = Player.transform.position;
+                        bgmusicaudio.pitch = 1f;
                         WallPlayer.SetActive(false);
                         mainCamera.gameObject.SetActive(true);
                         wallCamera.gameObject.SetActive(false);
