@@ -72,7 +72,8 @@ public class PickUpScript : MonoBehaviour
             heldObj.transform.SetParent(GrabSlot.transform);
             rb.isKinematic = true;
             childObj = heldObj;
-            Physics.IgnoreLayerCollision(7, 8);
+            Physics.IgnoreCollision(childObj.GetComponent<Collider>(), transform.parent.GetComponent<Collider>());
+            //Physics.IgnoreLayerCollision(7, 8);
             print("picked up " + childObj);
         }
     }
@@ -85,7 +86,8 @@ public class PickUpScript : MonoBehaviour
             rb = heldObj.GetComponent<Rigidbody>();
             rb.isKinematic = false;
             childObj.transform.parent = null;
-            Physics.IgnoreLayerCollision(7, 8, false);
+            Physics.IgnoreCollision(childObj.GetComponent<Collider>(), transform.parent.GetComponent<Collider>(), false);
+            //Physics.IgnoreLayerCollision(7, 8, false);
             print("putted down " + childObj);
             childObj = null;
         }

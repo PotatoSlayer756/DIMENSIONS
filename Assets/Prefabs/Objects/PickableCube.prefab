@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4479811350806092002}
   - component: {fileID: 6496920734158247478}
   - component: {fileID: 7434587948884735326}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: PickableCube
   m_TagString: Pickable
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 9183436042655564072}
   - component: {fileID: 5305884540006503880}
   - component: {fileID: 8484211670870765134}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: ae084d9f2e473734d896276d52440441, type: 2}
     - target: {fileID: 4572842182783854995, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5057058464190631955, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
       propertyPath: m_LocalScale.y
@@ -271,7 +271,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934471091473814900, guid: 5b2fbdb884a0c2b49acce18650dd8477, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
