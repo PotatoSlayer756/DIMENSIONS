@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float playerSpeed, holdingSpeed;
     public float jumpForce = 5.0f, respawnR, groundDistance, cameraYRotation;
-    public bool isOnGround = false, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false, isRespawning = false, isMoving; 
+    public bool isOnGround = false, isHolding = false, isLasered = false, canHeMove = true, isDustPlaying = false, isOnElevator = false, isRespawning = false, isMoving, isSleeping; 
     public int keyCount = 0, CameraRotation;
     public string deathcause;
     //public List<GameObject> secrets;
@@ -98,7 +98,26 @@ public class PlayerMovement : MonoBehaviour
             rb.MoveRotation(newRotation);
         }
 
-        isOnGround = Physics.CheckSphere(GroundChecker.position, groundDistance, groundMask);
+        RaycastHit hitInfo;
+        if (Physics.Raycast(GroundChecker.position, Vector3.down, out hitInfo, groundDistance, groundMask))
+        {
+            var groundNormal = hitInfo.normal;
+            var angle = Vector3.Angle(Vector3.up, groundNormal);
+            if (angle < 45f)
+            {
+                isOnGround = true;
+            }
+            else
+            {
+                //too steep
+                isOnGround = false;
+            }
+        }
+        else
+        {
+            //too far
+            isOnGround = false;
+        }
         anim.SetBool("IsOnGround", isOnGround);
 
         if (moveInput != 0f || strafeInput != 0f)

@@ -5,19 +5,18 @@ using DG.Tweening;
 
 public class EyeScript : MonoBehaviour
 {
-    Vector3 defaultRotation;
+    Quaternion defaultRotation;
 
     private void Start()
     {
-        defaultRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
+        defaultRotation = transform.rotation;
     }
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(other.gameObject);
-            transform.LookAt(other.transform.position);
+            transform.LookAt(new Vector3(other.transform.position.x, other.transform.position.y + 90, other.transform.position.z));
         }
     }
 
@@ -25,7 +24,8 @@ public class EyeScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            transform.DORotate(defaultRotation, 1f);
+            Debug.Log(defaultRotation);
+            transform.DORotate(defaultRotation.eulerAngles, 1f);
         }
     }
 }
