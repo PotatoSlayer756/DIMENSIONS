@@ -17,9 +17,11 @@ public class DialogueController : MonoBehaviour
     public bool dialogueCanStart = false;
     public RawImage dialogueWindow;
     [SerializeField] private AudioClip npcSoundClip;
+    bool isWriting = false;
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -29,9 +31,14 @@ public class DialogueController : MonoBehaviour
         {
             if (dialogueCanStart)
             {
-
                 Debug.Log("dialogue started");
                 NextSentence();
+            }
+            else if (isWriting)
+            {
+                StopCoroutine(WriteSentence());
+                dialogueText.text = sentences[index];
+                isWriting = false;
             }
         }
         else
@@ -44,17 +51,28 @@ public class DialogueController : MonoBehaviour
             index = 0;
         }
     }
+
     public void NextSentence()
     {
         dialogueWindow.gameObject.SetActive(true);
-        if (index <= sentences.Length - 1)
+        dialogueText.text = "";
+        if (index <= sentences.Length - 1 && isWriting)
         {
-            dialogueText.text = "";
+            Debug.Log("skipping to full sentence");
+            StopAllCoroutines();
+            dialogueText.text = sentences[index].ToString();
+            isWriting = false;
+            index++;
+        }
+        else if (index <= sentences.Length - 1 && !isWriting)
+        {
+            Debug.Log("writing a sentence");
+            isWriting = true;
             StartCoroutine(WriteSentence());
         }
         else
         {
-            dialogueText.text = "";
+            Debug.Log("finishing dialogue");
             dialogueWindow.gameObject.SetActive(false);
             index = 0;
             onDialogueEnd.Invoke();
@@ -69,6 +87,7 @@ public class DialogueController : MonoBehaviour
             AudioManager.Instance.PlaySoundClip(npcSoundClip, transform, 1f);
             yield return new WaitForSeconds(dialogueSpeed);
         }
-        index++;    
+        index++;
+        isWriting = false;
     }
 }

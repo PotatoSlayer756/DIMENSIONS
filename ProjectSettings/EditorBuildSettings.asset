@@ -26,4 +26,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/demoending.unity
     guid: 592db66b2adc6b144ab35c6a77b00412
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: eb0a26d6ab5ebe041a6807a1ac1110bd, type: 2}

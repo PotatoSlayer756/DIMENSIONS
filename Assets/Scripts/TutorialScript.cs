@@ -8,76 +8,122 @@ using TMPro;
 public class TutorialScript : MonoBehaviour
 {
     public TextMeshProUGUI tutorialtext1, tutorialtext2, tutorialtext3, tutorialtext4, gateOpenText, secretFoundText, secretLostText;
+    public RawImage tutorialtext1jbutton, tutorialtext2jbutton, tutorialtext3jbutton, tutorialtext4jbutton;
     public float displayDuration = 1f; // Duration in seconds
     public float fadeDuration = 1f; // Duration in seconds
     bool isNotWall;
 
-    private bool connected = false;
-
-    IEnumerator CheckForControllers()
-    {
-        while (true)
-        {
-            var controllers = Input.GetJoystickNames();
-
-            if (!connected && controllers.Length > 0)
-            {
-                connected = true;
-                Debug.Log("Connected");
-
-            }
-            else if (connected && controllers.Length == 0)
-            {
-                connected = false;
-                Debug.Log("Disconnected");
-            }
-
-            yield return new WaitForSeconds(1f);
-        }
-    }
-
-    void Awake()
-    {
-        StartCoroutine(CheckForControllers());
-    }
+    public bool isGamepadConnected;
 
     void Start()
     {
-        
+        string[] joystickNames = Input.GetJoystickNames();
+        foreach (string joystickName in joystickNames)
+        {
+            if (!string.IsNullOrEmpty(joystickName))
+            {
+                isGamepadConnected = true;
+                break;
+            }
+        }
+        if (isGamepadConnected)
+        {
+            Debug.Log("i can see gamepad");
+        }
+        tutorialtext1jbutton.enabled = false;
+        tutorialtext2jbutton.enabled = false;
+        tutorialtext3jbutton.enabled = false;
+        tutorialtext4jbutton.enabled = false;
+
     }
     private void Update()
     {
         isNotWall = gameObject.activeSelf;
+
     }
     void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.name == "TutorTrigger1")
         {
             tutorialtext1.gameObject.SetActive(true);
+            Debug.Log(isGamepadConnected);
+
+            if (isGamepadConnected)
+            {
+                tutorialtext1jbutton.enabled = true;
+            }
+            else
+            {
+                tutorialtext1jbutton.enabled = false;
+            }
         }
         if (other.gameObject.name == "TutorTrigger2")
         {
             tutorialtext2.gameObject.SetActive(true);
+            Debug.Log(isGamepadConnected);
+
+            if (isGamepadConnected)
+            {
+                tutorialtext2jbutton.enabled = true;
+            }
+            else
+            {
+                tutorialtext2jbutton.enabled = false;
+            }
         }
         if (other.gameObject.name == "TutorTrigger3")
         {
             tutorialtext3.gameObject.SetActive(true);
+            Debug.Log(isGamepadConnected);
+            if (isGamepadConnected)
+            {
+                tutorialtext3jbutton.enabled = true;
+            }
+            else
+            {
+                tutorialtext3jbutton.enabled = false;
+            }
+
         }
         if (other.gameObject.name == "TutorTrigger4")
         {
             tutorialtext4.gameObject.SetActive(true);
+            Debug.Log(isGamepadConnected);
+            if (isGamepadConnected)
+            {
+                tutorialtext4jbutton.enabled = true;
+            }
+            else
+            {
+                tutorialtext4jbutton.enabled = false;
+            }
         }
         if (other.gameObject.name == "TutorTrigger2End")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext2, 1.0f));
+            if(isGamepadConnected)
+            {
+                StartCoroutine(FadeButtonToZeroAlpha(tutorialtext2jbutton, 1.0f));
+            }
+
         }
         if (other.gameObject.name == "TutorTrigger3End")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext3, 1.0f));
+            if (isGamepadConnected)
+            {
+                StartCoroutine(FadeButtonToZeroAlpha(tutorialtext3jbutton, 1.0f));
+            }
+
         }
         if (other.gameObject.name == "TutorTrigger4End")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext4, 1.0f));
+            if (isGamepadConnected)
+            {
+                StartCoroutine(FadeButtonToZeroAlpha(tutorialtext4jbutton, 1.0f));
+            }
+
         }
     }
     void OnTriggerExit(Collider other)
@@ -85,6 +131,10 @@ public class TutorialScript : MonoBehaviour
         if (other.gameObject.name == "TutorTrigger1")
         {
             StartCoroutine(FadeTextToZeroAlpha(tutorialtext1, 1.0f));
+            if (isGamepadConnected)
+            {
+                StartCoroutine(FadeButtonToZeroAlpha(tutorialtext1jbutton, 1.0f));
+            }
         }
     }
 
@@ -131,7 +181,19 @@ public class TutorialScript : MonoBehaviour
             textToFade.color = newColor;
             yield return null;
         }
-        textToFade.gameObject.SetActive(false);
+        //newColor.a = 255;
+        //textToFade.color = newColor;
+    }
+    public IEnumerator FadeButtonToZeroAlpha(RawImage buttonToFade, float t)
+    {
+        Debug.Log("fading " + buttonToFade + "...");
+        Color newColor = buttonToFade.color;
+        while (buttonToFade.color.a > 0)
+        {
+            newColor.a -= Time.deltaTime / t;
+            buttonToFade.color = newColor;
+            yield return null;
+        }
         //newColor.a = 255;
         //textToFade.color = newColor;
     }

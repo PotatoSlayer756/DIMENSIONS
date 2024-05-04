@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         timerScript = portal.GetComponent<TimerScript>();
         sceneLoaderScript = portal.GetComponent<SceneLoaderScript>();
         walkingFX.SetActive(false);
+
     }
 
     void Update()
