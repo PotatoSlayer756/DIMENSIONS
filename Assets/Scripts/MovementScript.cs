@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         // Calculate the movement direction based on the input and camera's orientation
         Vector3 moveDirection = (cameraForward * moveInput + cameraRight * strafeInput).normalized;
 
-        if (canHeMove)
+        if (canHeMove && Time.timeScale == 1f)
         {
             rb.MovePosition(rb.position + moveDirection * speed * Time.deltaTime);
         }
@@ -147,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetBool("IsHolding", isHolding);
         if (Input.GetKeyDown(KeyCode.Joystick1Button0) || Input.GetKeyDown(KeyCode.Space))
         {
-            if (isOnGround && !isHolding)
+            if (isOnGround && !isHolding && canHeMove && Time.timeScale == 1f)
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 isOnGround = false;

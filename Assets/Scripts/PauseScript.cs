@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PauseScript : MonoBehaviour
 {
-    public GameObject pauseMenu, settingMenu;
+    public GameObject pauseMenu, settingMenu, resumeGame, masterSlider;
     public static bool isPaused = false;
     void Start()
     {
@@ -14,7 +15,7 @@ public class PauseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Joystick1Button7))
         {
             Debug.Log("esc");
             if (isPaused)
@@ -31,10 +32,13 @@ public class PauseScript : MonoBehaviour
 
     public void PauseGame()
     {
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(resumeGame, new BaseEventData(eventSystem));
         isPaused = true;
         Debug.Log("pausing");
         pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
+        Time.timeScale = 0f; 
+        Debug.Log(eventSystem.firstSelectedGameObject.name);
     }
 
     public void ResumeGame()
@@ -48,6 +52,9 @@ public class PauseScript : MonoBehaviour
     public void SettingsOpen()
     {
         settingMenu.SetActive(true);
+        var eventSystem = EventSystem.current;
+        eventSystem.SetSelectedGameObject(masterSlider, new BaseEventData(eventSystem));
+        Debug.Log(eventSystem.firstSelectedGameObject.name);
         pauseMenu.SetActive(false);
     }
 

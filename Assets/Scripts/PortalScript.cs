@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalScript : MonoBehaviour
 {
+    int sceneindex;
     public GameObject Fade;
     //public bool isDebugOn;
     TimerScript timerScript;
@@ -20,16 +21,17 @@ public class PortalScript : MonoBehaviour
         //debugMenu.SetActive(false);
         fadeAnim = Fade.GetComponent<Animator>();
         timerScript = gameObject.GetComponent<TimerScript>();
+        sceneindex = SceneManager.GetActiveScene().buildIndex;
+        if (sceneindex >= PlayerPrefs.GetInt("MaxLevel", 0))
+        {
+            PlayerPrefs.SetInt("MaxLevel", sceneindex);
+        }
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.X))
         {
-            // Toggle the state of isDebugOn before updating the active status of debugMenu
-            //isDebugOn = !isDebugOn;
-
-            // Update the active status of debugMenu based on the new state of isDebugOn
-            //debugMenu.SetActive(isDebugOn);
+            Debug.Log(PlayerPrefs.GetInt("MaxLevel"));
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -37,6 +39,7 @@ public class PortalScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             timerScript.StopTimer();
+
             AudioManager.Instance.PlaySoundClip(nextLevelSoundClip, transform, 1f);
             fadeAnim.SetTrigger("FadeOut");
             Time.timeScale = 0.5f;
